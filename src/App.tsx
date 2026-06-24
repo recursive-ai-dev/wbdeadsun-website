@@ -105,11 +105,21 @@ const Hero = () => {
           <div className="h-px w-16 bg-gradient-to-l from-transparent to-zinc-600" />
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest text-zinc-100 mb-6 drop-shadow-2xl">
-          recursive-ai-dev
-          <br />
-          <span className="text-zinc-200">Archives</span>
-        </h1>
+        <div className="mb-8 flex flex-col items-center">
+          <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-zinc-600/60 shadow-[0_0_40px_rgba(255,255,255,0.05)] mb-6">
+            <div className="absolute inset-0 rounded-full ring-1 ring-zinc-400/20 z-10" />
+            <img
+              src="/images/profile(1)(1).png"
+              alt="WBDEADSUN"
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            />
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest text-zinc-100 drop-shadow-2xl">
+            WBDEADSUN
+            <br />
+            <span className="text-zinc-200">Archives</span>
+          </h1>
+        </div>
 
         <p className="text-zinc-400 text-lg md:text-xl tracking-widest uppercase mb-8 max-w-xl mx-auto">
           Games &bull; Music &bull; Programs &bull; AI
@@ -466,7 +476,7 @@ const Contact = () => (
         </a>
       </div>
       <div className="pt-12 border-t border-zinc-800/50">
-        <p className="text-zinc-500 text-xs tracking-widest">&copy; 2025 &bull; recursive-ai-dev Archives</p>
+        <p className="text-zinc-500 text-xs tracking-widest">&copy; 2025 &bull; WBDEADSUN Archives</p>
       </div>
     </div>
   </section>
