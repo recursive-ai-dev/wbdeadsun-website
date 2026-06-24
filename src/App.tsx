@@ -6,6 +6,157 @@ interface MusicTrack {
   file: string;
   projectTitle: string;
 }
+const BlackFlame = ({ className = "w-8 h-8" }: { className?: string }) => (
+  <svg viewBox="0 0 50 56" className={`${className} drop-shadow-[0_0_10px_rgba(255,255,255,0.12)]`}>
+    <defs>
+      <filter id="flame-glow">
+        <feGaussianBlur stdDeviation="1.2" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+    <g filter="url(#flame-glow)">
+      <path d="M25 54 C25 54 6 30 6 18 C6 9 13 2 25 2 C37 2 44 9 44 18 C44 30 25 54 25 54 Z" fill="#1a1a1a" stroke="#444" strokeWidth="0.6" />
+      <path d="M25 48 C25 48 11 28 11 19 C11 12 17 6 25 6 C33 6 39 12 39 19 C39 28 25 48 25 48 Z" fill="#222" />
+      <path d="M25 40 C25 40 15 25 15 19 C15 14 19 10 25 10 C31 10 35 14 35 19 C35 25 25 40 25 40 Z" fill="#333" />
+      <path d="M25 32 C25 32 19 22 19 18 C19 15 22 12 25 12 C28 12 31 15 31 18 C31 22 25 32 25 32 Z" fill="#444" />
+      <path d="M25 26 C25 26 22 20 22 18 C22 16 23.5 14 25 14 C26.5 14 28 16 28 18 C28 20 25 26 25 26 Z" fill="#555" />
+    </g>
+  </svg>
+);
+
+const GothicDivider = () => (
+  <div className="flex items-center justify-center gap-4 my-12">
+    <div className="h-px w-24 bg-gradient-to-r from-transparent via-zinc-600 to-zinc-500" />
+    <BlackFlame className="w-8 h-8 fill-zinc-500" />
+    <div className="h-px w-24 bg-gradient-to-l from-transparent via-zinc-600 to-zinc-500" />
+  </div>
+);
+
+const Navigation = ({ activeSection, onNavigate }: { activeSection: string; onNavigate: (section: string) => void }) => {
+  const sections = ['home', 'about', ...Object.keys(projectsByCategory)] as const;
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-zinc-700/50">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="flex items-center justify-between h-16">
+          <button onClick={() => onNavigate('home')} className="font-bold tracking-widest text-zinc-100 text-lg cursor-pointer">
+            ARCHIVE
+          </button>
+
+          <div className="hidden md:flex items-center gap-1">
+            {sections.map((section) => (
+              <button
+                key={section}
+                onClick={() => onNavigate(section)}
+                className={`px-4 py-2 text-xs tracking-widest uppercase transition-colors cursor-pointer
+                           ${activeSection === section
+                             ? 'text-zinc-100 border-b border-zinc-500'
+                             : 'text-zinc-500 hover:text-zinc-300'}`}
+              >
+                {section === 'about' ? 'About' : categoryInfo[section as ProjectCategory]?.label || section}
+              </button>
+            ))}
+          </div>
+
+           <button className="md:hidden text-zinc-300 hover:text-zinc-100 transition-colors cursor-pointer">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+const Hero = () => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src="/images/hero-bg.jpg"
+          alt=""
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+      </div>
+
+      <div
+        className="absolute w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none
+                   bg-gradient-radial from-zinc-500 to-transparent transition-all duration-1000 ease-out"
+        style={{
+          left: mousePos.x - 192,
+          top: mousePos.y - 192,
+        }}
+      />
+
+      <div className="relative text-center z-10 px-6">
+        <div className="mb-8 flex flex-col items-center">
+          <div className="mb-4 opacity-40 animate-pulse">
+            <BlackFlame className="w-8 h-8" />
+          </div>
+          <img src="/images/profile(1)(1).png" alt="WBDEADSUN" className="w-56 h-56 rounded-lg object-cover border-t border-l border-zinc-700/30 shadow-[20px_20px_40px_rgba(0,0,0,0.9),-5px_-5px_15px_rgba(255,255,255,0.02)] hover:scale-[1.02] transition-all duration-1000" />
+        </div>
+        <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-4">
+          WBDEADSUN
+        </h1>
+        <p className="text-zinc-500 tracking-[0.5em] uppercase text-sm md:text-base">
+          Digital Necromancy &bull; Sonic Occultism
+        </p>
+      </div>
+
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+        <span className="text-xs tracking-widest uppercase text-zinc-400">Scroll to Enter</span>
+      </div>
+    </section>
+  );
+};
+
+const About = () => {
+  const totalGames = projectsByCategory['games'].length;
+  const totalAI = projectsByCategory['ai'].length;
+  const totalPrograms = projectsByCategory['programs'].length;
+  const totalTracks = projectsByCategory['music'].reduce((acc, p) => acc + (p.tracks?.length || 0), 0);
+
+  return (
+    <section id="about" className="py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-black to-zinc-950">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase text-zinc-100 mb-8">About</h2>
+        <GothicDivider />
+        <p className="text-zinc-300 text-lg leading-relaxed mb-8">
+          I enjoy vibe coding, have been writing lyrics for 20 years, and can never seem to finish a project.
+        </p>
+        <GothicDivider />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+          {[
+            { label: "Games", value: `${totalGames}` },
+            { label: "AI Projects", value: `${totalAI}` },
+            { label: "Tracks", value: `${totalTracks}+` },
+            { label: "Programs", value: `${totalPrograms}` },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl font-bold text-zinc-200 mb-2">{stat.value}</div>
+              <div className="text-xs text-zinc-500 tracking-widest uppercase">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 interface MusicState {
   currentTrack: MusicTrack | null;
@@ -452,9 +603,17 @@ const Contact = () => (
         >
           YouTube &rarr;
         </a>
+        <a
+          href="tel:+15069535591"
+          className="px-6 py-3 border border-zinc-700 text-zinc-300 hover:border-zinc-500
+                     hover:text-zinc-100 transition-all text-sm tracking-widest uppercase"
+        >
+          +1 506-953-5591 &rarr;
+        </a>
       </div>
       <div className="pt-12 border-t border-zinc-800/50">
-        <p className="text-zinc-500 text-xs tracking-widest">&copy; 2025 &bull; WBDEADSUN Archives</p>
+        <p className="text-zinc-500 text-xs tracking-widest mb-2">&copy; 2025 &bull; WBDEADSUN Archives</p>
+        <p className="text-zinc-600 text-[10px] tracking-widest uppercase">+1 506-953-5591</p>
       </div>
     </div>
   </section>

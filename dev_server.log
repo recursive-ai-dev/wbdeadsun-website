@@ -1,0 +1,11 @@
+
+> react-vite-tailwind@0.0.0 dev
+> vite
+
+
+  VITE v7.3.2  ready in 404 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+9:23:08 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+9:24:54 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
