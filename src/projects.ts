@@ -115,8 +115,6 @@ export const projects: Project[] = [
     category: "music",
     type: "music",
     tracks: [
-      { title: "Pain On You", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun -  painonyou.mp3" },
-      { title: "Push Me Under", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun -  pushmeunder.mp3" },
       { title: "A Dog Never Hears When a Thought Dies", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - adogneverhearswhenathoughtdies.mp3" },
       { title: "Crows", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - crows.mp3" },
       { title: "Dead Leaves", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - deadleaves.mp3" },
@@ -125,6 +123,8 @@ export const projects: Project[] = [
       { title: "Easy Way", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - easyway.mp3" },
       { title: "Memory Fades", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - memoryfades.mp3" },
       { title: "Mostly Rehab", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - mostlyrehab.mp3" },
+      { title: "Pain On You", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun -  painonyou.mp3" },
+      { title: "Push Me Under", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun -  pushmeunder.mp3" },
       { title: "Suffer Days", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - sufferdays.mp3" },
       { title: "Weathered", file: "projects/music/witheringbloomdeadsun/witheringbloomdeadsun - weathered.mp3" },
     ],
