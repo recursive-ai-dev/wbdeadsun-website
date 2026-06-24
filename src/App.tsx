@@ -99,8 +99,11 @@ const Hero = () => {
       />
 
       <div className="relative text-center z-10 px-6">
-        <div className="mb-8 flex justify-center animate-pulse">
-           <BlackFlame className="w-16 h-16" />
+        <div className="mb-8 flex flex-col items-center">
+          <div className="mb-4 opacity-40 animate-pulse">
+            <BlackFlame className="w-8 h-8" />
+          </div>
+          <img src="/images/profile(1)(1).png" alt="WBDEADSUN" className="w-32 h-32 rounded-full object-cover border-2 border-zinc-700/50 grayscale hover:grayscale-0 transition-all duration-700 shadow-[0_0_20px_rgba(255,255,255,0.05)]" />
         </div>
         <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-4">
           WBDEADSUN
@@ -500,9 +503,17 @@ const Contact = () => (
         >
           YouTube &rarr;
         </a>
+        <a
+          href="tel:+15069535591"
+          className="px-6 py-3 border border-zinc-700 text-zinc-300 hover:border-zinc-500
+                     hover:text-zinc-100 transition-all text-sm tracking-widest uppercase"
+        >
+          +1 506-953-5591 &rarr;
+        </a>
       </div>
       <div className="pt-12 border-t border-zinc-800/50">
-        <p className="text-zinc-500 text-xs tracking-widest">&copy; 2025 &bull; WBDEADSUN Archives</p>
+        <p className="text-zinc-500 text-xs tracking-widest mb-2">&copy; 2025 &bull; WBDEADSUN Archives</p>
+        <p className="text-zinc-600 text-[10px] tracking-widest uppercase">+1 506-953-5591</p>
       </div>
     </div>
   </section>
