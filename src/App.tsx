@@ -443,16 +443,22 @@ const Contact = () => (
         Interested in collaborating or have questions? Reach out.
       </p>
       <div className="flex flex-wrap justify-center gap-6 mb-12">
-        {['GitHub', 'Twitter', 'SoundCloud', 'Email'].map((platform) => (
-          <a
-            key={platform}
-            href="#"
-            className="px-6 py-3 border border-zinc-700 text-zinc-300 hover:border-zinc-500
-                       hover:text-zinc-100 transition-all text-sm tracking-widest uppercase"
-          >
-            {platform}
-          </a>
-        ))}
+        <a
+          href="https://github.com/recursive-ai-dev"
+          target="_blank"
+          className="px-6 py-3 border border-zinc-700 text-zinc-300 hover:border-zinc-500
+                     hover:text-zinc-100 transition-all text-sm tracking-widest uppercase"
+        >
+          GitHub &rarr;
+        </a>
+        <a
+          href="https://www.youtube.com/@wbdeadsun"
+          target="_blank"
+          className="px-6 py-3 border border-zinc-700 text-zinc-300 hover:border-zinc-500
+                     hover:text-zinc-100 transition-all text-sm tracking-widest uppercase"
+        >
+          YouTube &rarr;
+        </a>
       </div>
       <div className="pt-12 border-t border-zinc-800/50">
         <p className="text-zinc-500 text-xs tracking-widest">&copy; 2025 &bull; recursive-ai-dev Archives</p>
