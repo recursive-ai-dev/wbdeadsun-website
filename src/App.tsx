@@ -84,8 +84,21 @@ const Hero = () => {
       <div className="relative z-10 text-center px-6">
         <div className="flex items-center justify-center gap-4 mb-8">
           <div className="h-px w-16 bg-gradient-to-r from-transparent to-zinc-600" />
-          <svg viewBox="0 0 50 50" className="w-8 h-8 fill-zinc-600">
-            <polygon points="25,5 30,20 45,20 33,30 38,45 25,35 12,45 17,30 5,20 20,20" />
+          <svg viewBox="0 0 50 50" className="w-10 h-10 drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]">
+            <defs>
+              <filter id="flame-glow">
+                <feGaussianBlur stdDeviation="1.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#flame-glow)">
+              <path d="M25 2 C25 2 15 18 15 26 C15 31.6 19.4 36 25 36 C30.6 36 35 31.6 35 26 C35 18 25 2 25 2 Z" fill="#1a1a1a" stroke="#555" strokeWidth="0.8" />
+              <path d="M25 10 C25 10 19 22 19 27 C19 30.3 21.7 33 25 33 C28.3 33 31 30.3 31 27 C31 22 25 10 25 10 Z" fill="#2a2a2a" />
+              <path d="M25 16 C25 16 22 24 22 27 C22 28.7 23.3 30 25 30 C26.7 30 28 28.7 28 27 C28 24 25 16 25 16 Z" fill="#444" />
+            </g>
           </svg>
           <div className="h-px w-16 bg-gradient-to-l from-transparent to-zinc-600" />
         </div>
