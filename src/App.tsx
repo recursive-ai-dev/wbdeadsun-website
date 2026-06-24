@@ -1,12 +1,31 @@
 import { useState, useEffect } from 'react';
 import { projects, projectsByCategory, categoryInfo, type Project, type ProjectCategory } from './projects';
 
+const BlackFlame = ({ className = "w-8 h-8" }: { className?: string }) => (
+  <svg viewBox="0 0 50 56" className={`${className} drop-shadow-[0_0_10px_rgba(255,255,255,0.12)]`}>
+    <defs>
+      <filter id="flame-glow">
+        <feGaussianBlur stdDeviation="1.2" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+    <g filter="url(#flame-glow)">
+      <path d="M25 54 C25 54 6 30 6 18 C6 9 13 2 25 2 C37 2 44 9 44 18 C44 30 25 54 25 54 Z" fill="#1a1a1a" stroke="#444" strokeWidth="0.6" />
+      <path d="M25 48 C25 48 11 28 11 19 C11 12 17 6 25 6 C33 6 39 12 39 19 C39 28 25 48 25 48 Z" fill="#222" />
+      <path d="M25 40 C25 40 15 25 15 19 C15 14 19 10 25 10 C31 10 35 14 35 19 C35 25 25 40 25 40 Z" fill="#333" />
+      <path d="M25 32 C25 32 19 22 19 18 C19 15 22 12 25 12 C28 12 31 15 31 18 C31 22 25 32 25 32 Z" fill="#444" />
+      <path d="M25 26 C25 26 22 20 22 18 C22 16 23.5 14 25 14 C26.5 14 28 16 28 18 C28 20 25 26 25 26 Z" fill="#555" />
+    </g>
+  </svg>
+);
+
 const GothicDivider = () => (
   <div className="flex items-center justify-center gap-4 my-12">
     <div className="h-px w-24 bg-gradient-to-r from-transparent via-zinc-600 to-zinc-500" />
-    <svg viewBox="0 0 100 30" className="w-24 h-8 fill-zinc-500">
-      <path d="M50 0 L55 10 L65 10 L57 17 L60 28 L50 22 L40 28 L43 17 L35 10 L45 10 Z" />
-    </svg>
+    <BlackFlame className="w-8 h-8 fill-zinc-500" />
     <div className="h-px w-24 bg-gradient-to-l from-transparent via-zinc-600 to-zinc-500" />
   </div>
 );
@@ -59,8 +78,6 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const allCategories = Object.entries(categoryInfo) as [ProjectCategory, typeof categoryInfo[ProjectCategory]][];
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
@@ -84,22 +101,7 @@ const Hero = () => {
       <div className="relative z-10 text-center px-6">
         <div className="flex items-center justify-center gap-4 mb-8">
           <div className="h-px w-16 bg-gradient-to-r from-transparent to-zinc-600" />
-          <svg viewBox="0 0 50 50" className="w-10 h-10 drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]">
-            <defs>
-              <filter id="flame-glow">
-                <feGaussianBlur stdDeviation="1.5" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            <g filter="url(#flame-glow)">
-              <path d="M25 2 C25 2 15 18 15 26 C15 31.6 19.4 36 25 36 C30.6 36 35 31.6 35 26 C35 18 25 2 25 2 Z" fill="#1a1a1a" stroke="#555" strokeWidth="0.8" />
-              <path d="M25 10 C25 10 19 22 19 27 C19 30.3 21.7 33 25 33 C28.3 33 31 30.3 31 27 C31 22 25 10 25 10 Z" fill="#2a2a2a" />
-              <path d="M25 16 C25 16 22 24 22 27 C22 28.7 23.3 30 25 30 C26.7 30 28 28.7 28 27 C28 24 25 16 25 16 Z" fill="#444" />
-            </g>
-          </svg>
+          <BlackFlame className="w-10 h-10" />
           <div className="h-px w-16 bg-gradient-to-l from-transparent to-zinc-600" />
         </div>
 
@@ -112,16 +114,6 @@ const Hero = () => {
         <p className="text-zinc-400 text-lg md:text-xl tracking-widest uppercase mb-8 max-w-xl mx-auto">
           Games &bull; Music &bull; Programs &bull; AI
         </p>
-
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {allCategories.map(([cat, info]) => (
-            <span key={cat} className="text-xs tracking-widest text-zinc-500 border border-zinc-700
-                                       px-3 py-1 uppercase hover:border-zinc-500 hover:text-zinc-300
-                                       transition-colors">
-              {info.label}
-            </span>
-          ))}
-        </div>
 
         <div className="animate-bounce">
           <svg className="w-6 h-6 mx-auto text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
