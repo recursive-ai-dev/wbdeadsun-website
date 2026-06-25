@@ -181,7 +181,9 @@ const About = () => {
   );
 };
 
-const ArchiveExplorer = () => {
+const GlobalArchiveExplorer = () => {
+  const [previewFile, setPreviewFile] = useState<string | null>(null);
+
   return (
     <section id="archives" className="py-24 px-6 md:px-12 lg:px-24 bg-black border-t border-zinc-900">
       <div className="max-w-6xl mx-auto">
@@ -193,8 +195,16 @@ const ArchiveExplorer = () => {
           <p className="text-zinc-500 text-sm tracking-widest uppercase">Deep filesystem inspection</p>
         </div>
 
-        <div className="h-[600px] shadow-2xl">
-           <ProjectExplorer initialPath="projects" className="h-full border-zinc-700/50" />
+        <div className="h-[600px] shadow-2xl bg-zinc-950 border border-zinc-800">
+           {previewFile ? (
+             <FilePreview path={previewFile} onClose={() => setPreviewFile(null)} />
+           ) : (
+             <ProjectExplorer
+              initialPath="projects"
+              onOpenFile={(path) => setPreviewFile(path)}
+              className="h-full border-none"
+             />
+           )}
         </div>
       </div>
     </section>
@@ -357,9 +367,62 @@ const GlobalPlayer = ({ musicState }: { musicState: MusicState }) => {
   );
 };
 
+const FilePreview = ({ path, onClose }: { path: string; onClose: () => void }) => {
+  const [content, setContent] = useState<string>("");
+  const [loading, setLoading] = useState(true);
+  const isImage = /\.(png|jpe?g|gif|webp|svg)$/i.test(path);
+  const isAudio = /\.mp3$/i.test(path);
+
+  useEffect(() => {
+    if (isImage || isAudio) {
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    fetch(`/${path}`)
+      .then(res => res.text())
+      .then(text => {
+        setContent(text);
+        setLoading(false);
+      })
+      .catch(err => {
+        setContent("Error loading file.");
+        setLoading(false);
+      });
+  }, [path]);
+
+  return (
+    <div className="flex flex-col h-full animate-in fade-in zoom-in-95 duration-300">
+      <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800 flex justify-between items-center">
+        <span className="text-[10px] uppercase tracking-widest text-zinc-400 font-mono truncate mr-4">{path}</span>
+        <button onClick={onClose} className="text-zinc-500 hover:text-zinc-200 transition-colors">&times; CLOSE PREVIEW</button>
+      </div>
+      <div className="flex-1 overflow-auto p-6 bg-black/20 custom-scrollbar">
+        {loading ? (
+          <div className="h-full flex items-center justify-center text-zinc-600 font-mono text-xs animate-pulse">ACCESSING ENCRYPTED DATA...</div>
+        ) : isImage ? (
+          <div className="h-full flex items-center justify-center">
+            <img src={`/${path}`} alt="" className="max-w-full max-h-full object-contain border border-zinc-800 shadow-2xl" />
+          </div>
+        ) : isAudio ? (
+          <div className="h-full flex flex-col items-center justify-center gap-6">
+            <div className="text-4xl">🎵</div>
+            <audio src={`/${path}`} controls className="w-full max-w-md accent-zinc-500" />
+          </div>
+        ) : (
+          <pre className="text-xs md:text-sm font-mono text-zinc-300 leading-relaxed whitespace-pre-wrap">
+            {content}
+          </pre>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const ProjectModal = ({ project, onClose, musicState }: { project: Project; onClose: () => void; musicState: MusicState }) => {
   const [lyrics, setLyrics] = useState<Record<string, string>>({});
   const [activeTab, setActiveTab] = useState<'overview' | 'explorer' | 'live'>('overview');
+  const [previewFile, setPreviewFile] = useState<string | null>(null);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -490,7 +553,15 @@ const ProjectModal = ({ project, onClose, musicState }: { project: Project; onCl
 
           {activeTab === 'explorer' && (
             <div className="h-full flex flex-col animate-in slide-in-from-bottom-4 duration-500">
-               <ProjectExplorer initialPath={`projects/${project.category}/${project.id}`} className="flex-1 border-none bg-transparent" />
+              {previewFile ? (
+                <FilePreview path={previewFile} onClose={() => setPreviewFile(null)} />
+              ) : (
+                <ProjectExplorer
+                  initialPath={`projects/${project.category}/${project.id}`}
+                  onOpenFile={(path) => setPreviewFile(path)}
+                  className="flex-1 border-none bg-transparent"
+                />
+              )}
             </div>
           )}
 
@@ -817,7 +888,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <ArchiveExplorer />
+        <GlobalArchiveExplorer />
 
         {(Object.keys(projectsByCategory) as ProjectCategory[]).map((category) => (
           <div key={category} id={category}>

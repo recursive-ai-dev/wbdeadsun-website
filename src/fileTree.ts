@@ -9,6 +9,532 @@ export const fileTree = {
       "type": "directory",
       "children": [
         {
+          "name": "LLM-RP",
+          "path": "projects/ai/LLM-RP",
+          "type": "directory",
+          "children": [
+            {
+              "name": "LEGION_SYNERGY.md",
+              "path": "projects/ai/LLM-RP/LEGION_SYNERGY.md",
+              "type": "file"
+            },
+            {
+              "name": "LLMRP.html",
+              "path": "projects/ai/LLM-RP/LLMRP.html",
+              "type": "file"
+            },
+            {
+              "name": "architect",
+              "path": "projects/ai/LLM-RP/architect",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "ARCHITECT_CODEX.md",
+                  "path": "projects/ai/LLM-RP/architect/ARCHITECT_CODEX.md",
+                  "type": "file"
+                },
+                {
+                  "name": "ARCHITECT_QUICK_REFERENCE.md",
+                  "path": "projects/ai/LLM-RP/architect/ARCHITECT_QUICK_REFERENCE.md",
+                  "type": "file"
+                },
+                {
+                  "name": "LEGION_INTEGRATION_GUIDE.md",
+                  "path": "projects/ai/LLM-RP/architect/LEGION_INTEGRATION_GUIDE.md",
+                  "type": "file"
+                },
+                {
+                  "name": "README.md",
+                  "path": "projects/ai/LLM-RP/architect/README.md",
+                  "type": "file"
+                },
+                {
+                  "name": "README_ARCHITECT_PACKAGE.md",
+                  "path": "projects/ai/LLM-RP/architect/README_ARCHITECT_PACKAGE.md",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_ARCHITECT.md",
+                  "path": "projects/ai/LLM-RP/architect/SKILL_ARCHITECT.md",
+                  "type": "file"
+                },
+                {
+                  "name": "engine.ts",
+                  "path": "projects/ai/LLM-RP/architect/engine.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "index.ts",
+                  "path": "projects/ai/LLM-RP/architect/index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "package.json",
+                  "path": "projects/ai/LLM-RP/architect/package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "react_agent.ts",
+                  "path": "projects/ai/LLM-RP/architect/react_agent.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "synthesizer.ts",
+                  "path": "projects/ai/LLM-RP/architect/synthesizer.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "tensor.ts",
+                  "path": "projects/ai/LLM-RP/architect/tensor.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "path": "projects/ai/LLM-RP/architect/tsconfig.json",
+                  "type": "file"
+                },
+                {
+                  "name": "types.ts",
+                  "path": "projects/ai/LLM-RP/architect/types.ts",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "bard",
+              "path": "projects/ai/LLM-RP/bard",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "BARD_CODEX.md",
+                  "path": "projects/ai/LLM-RP/bard/BARD_CODEX.md",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_BARD.md",
+                  "path": "projects/ai/LLM-RP/bard/SKILL_BARD.md",
+                  "type": "file"
+                },
+                {
+                  "name": "UndeadBard.md",
+                  "path": "projects/ai/LLM-RP/bard/UndeadBard.md",
+                  "type": "file"
+                },
+                {
+                  "name": "index.ts",
+                  "path": "projects/ai/LLM-RP/bard/index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "package-lock.json",
+                  "path": "projects/ai/LLM-RP/bard/package-lock.json",
+                  "type": "file"
+                },
+                {
+                  "name": "package.json",
+                  "path": "projects/ai/LLM-RP/bard/package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "path": "projects/ai/LLM-RP/bard/tsconfig.json",
+                  "type": "file"
+                },
+                {
+                  "name": "workflow-living-chronicle.txt",
+                  "path": "projects/ai/LLM-RP/bard/workflow-living-chronicle.txt",
+                  "type": "file"
+                },
+                {
+                  "name": "workflow-semantic-hunt.txt",
+                  "path": "projects/ai/LLM-RP/bard/workflow-semantic-hunt.txt",
+                  "type": "file"
+                },
+                {
+                  "name": "workflow-skeleton-of-thought-chronicle.txt",
+                  "path": "projects/ai/LLM-RP/bard/workflow-skeleton-of-thought-chronicle.txt",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "berserker",
+              "path": "projects/ai/LLM-RP/berserker",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "Berserker_BERSERKER_CODEX.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_BERSERKER_CODEX.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_SKILL.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_SKILL.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_references_ancestor-verdicts.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_references_ancestor-verdicts.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_references_chains_ancestor-chain-01-consumption.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_references_chains_ancestor-chain-01-consumption.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_references_chains_ancestor-chain-02-weight-of-release.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_references_chains_ancestor-chain-02-weight-of-release.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_references_chains_ancestor-chain-03-burden-test.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_references_chains_ancestor-chain-03-burden-test.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_references_example-report.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_references_example-report.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_ancestor-spirits-skill_undead-berserker_undead-berserker.md.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_undead-berserker_undead-berserker.md.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_encounters.txt",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_encounters.txt",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_index.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_README.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_README.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_package-lock.json",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_package-lock.json",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_package.json",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_constants.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_constants.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_index.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_schemas_index.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_schemas_index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_services_blade.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_services_blade.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_services_session.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_services_session.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_analyze.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_analyze.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_battle_report.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_battle_report.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_berserker-tools.pdf",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_berserker-tools.pdf",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_commit.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_commit.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_direct_strike.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_direct_strike.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_dual-tensor-1.pdf",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_dual-tensor-1.pdf",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_dual-tensor.pdf",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_dual-tensor.pdf",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_forge.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_forge.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_scan.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_scan.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_semantic-forge.pdf",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_semantic-forge.pdf",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_symbolic-algebra.pdf",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_symbolic-algebra.pdf",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_tools_test.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_tools_test.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_src_types.ts",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_src_types.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_tsconfig.json",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_tsconfig.json",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_package.json",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_prompt-chains_chain-01-ancestral-quest.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_prompt-chains_chain-01-ancestral-quest.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_prompt-chains_chain-02-path-to-release.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_prompt-chains_chain-02-path-to-release.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_prompt-chains_chain-03-debugging-by-destruction.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_prompt-chains_chain-03-debugging-by-destruction.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_system-prompt.txt",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_system-prompt.txt",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_tsconfig.json",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_tsconfig.json",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_workflows_workflow-compile-or-die.txt",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_workflows_workflow-compile-or-die.txt",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_workflows_workflow-retracing-steps.txt",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_workflows_workflow-retracing-steps.txt",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_workflows_workflow-shard-sequence.txt",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_workflows_workflow-shard-sequence.txt",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "dragon",
+              "path": "projects/ai/LLM-RP/dragon",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "DRAGON_CODEX.md",
+                  "path": "projects/ai/LLM-RP/dragon/DRAGON_CODEX.md",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_DRAGON.md",
+                  "path": "projects/ai/LLM-RP/dragon/SKILL_DRAGON.md",
+                  "type": "file"
+                },
+                {
+                  "name": "index.ts",
+                  "path": "projects/ai/LLM-RP/dragon/index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "package-lock.json",
+                  "path": "projects/ai/LLM-RP/dragon/package-lock.json",
+                  "type": "file"
+                },
+                {
+                  "name": "package.json",
+                  "path": "projects/ai/LLM-RP/dragon/package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "path": "projects/ai/LLM-RP/dragon/tsconfig.json",
+                  "type": "file"
+                },
+                {
+                  "name": "undead-dragon.md",
+                  "path": "projects/ai/LLM-RP/dragon/undead-dragon.md",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "hexweaver",
+              "path": "projects/ai/LLM-RP/hexweaver",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "HEXWEAVER_CODEX.md",
+                  "path": "projects/ai/LLM-RP/hexweaver/HEXWEAVER_CODEX.md",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_HEXWEAVER.md",
+                  "path": "projects/ai/LLM-RP/hexweaver/SKILL_HEXWEAVER.md",
+                  "type": "file"
+                },
+                {
+                  "name": "index.ts",
+                  "path": "projects/ai/LLM-RP/hexweaver/index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "package.json",
+                  "path": "projects/ai/LLM-RP/hexweaver/package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "roles-hexweaver.md",
+                  "path": "projects/ai/LLM-RP/hexweaver/roles-hexweaver.md",
+                  "type": "file"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "path": "projects/ai/LLM-RP/hexweaver/tsconfig.json",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "hound",
+              "path": "projects/ai/LLM-RP/hound",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "HOUND_CODEX.md",
+                  "path": "projects/ai/LLM-RP/hound/HOUND_CODEX.md",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_HOUND.md",
+                  "path": "projects/ai/LLM-RP/hound/SKILL_HOUND.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Undead-Hound.md",
+                  "path": "projects/ai/LLM-RP/hound/Undead-Hound.md",
+                  "type": "file"
+                },
+                {
+                  "name": "index.ts",
+                  "path": "projects/ai/LLM-RP/hound/index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "package-lock.json",
+                  "path": "projects/ai/LLM-RP/hound/package-lock.json",
+                  "type": "file"
+                },
+                {
+                  "name": "package.json",
+                  "path": "projects/ai/LLM-RP/hound/package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "path": "projects/ai/LLM-RP/hound/tsconfig.json",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "warlock",
+              "path": "projects/ai/LLM-RP/warlock",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "SKILL_WARLOCK.md",
+                  "path": "projects/ai/LLM-RP/warlock/SKILL_WARLOCK.md",
+                  "type": "file"
+                },
+                {
+                  "name": "UndeadWarlock.md",
+                  "path": "projects/ai/LLM-RP/warlock/UndeadWarlock.md",
+                  "type": "file"
+                },
+                {
+                  "name": "WARLOCK_CODEX.md",
+                  "path": "projects/ai/LLM-RP/warlock/WARLOCK_CODEX.md",
+                  "type": "file"
+                },
+                {
+                  "name": "index.ts",
+                  "path": "projects/ai/LLM-RP/warlock/index.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "package-lock.json",
+                  "path": "projects/ai/LLM-RP/warlock/package-lock.json",
+                  "type": "file"
+                },
+                {
+                  "name": "package.json",
+                  "path": "projects/ai/LLM-RP/warlock/package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "path": "projects/ai/LLM-RP/warlock/tsconfig.json",
+                  "type": "file"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "html",
           "path": "projects/ai/html",
           "type": "directory",
@@ -1547,6 +2073,534 @@ export const fileTree = {
           ]
         },
         {
+          "name": "sheddevs-2d-characters",
+          "path": "projects/programs/sheddevs-2d-characters",
+          "type": "directory",
+          "children": [
+            {
+              "name": "LICENSE",
+              "path": "projects/programs/sheddevs-2d-characters/LICENSE",
+              "type": "file"
+            },
+            {
+              "name": "README.md",
+              "path": "projects/programs/sheddevs-2d-characters/README.md",
+              "type": "file"
+            },
+            {
+              "name": "components.json",
+              "path": "projects/programs/sheddevs-2d-characters/components.json",
+              "type": "file"
+            },
+            {
+              "name": "eslint.config.mjs",
+              "path": "projects/programs/sheddevs-2d-characters/eslint.config.mjs",
+              "type": "file"
+            },
+            {
+              "name": "next.config.ts",
+              "path": "projects/programs/sheddevs-2d-characters/next.config.ts",
+              "type": "file"
+            },
+            {
+              "name": "package.json",
+              "path": "projects/programs/sheddevs-2d-characters/package.json",
+              "type": "file"
+            },
+            {
+              "name": "postcss.config.mjs",
+              "path": "projects/programs/sheddevs-2d-characters/postcss.config.mjs",
+              "type": "file"
+            },
+            {
+              "name": "public",
+              "path": "projects/programs/sheddevs-2d-characters/public",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "logo.svg",
+                  "path": "projects/programs/sheddevs-2d-characters/public/logo.svg",
+                  "type": "file"
+                },
+                {
+                  "name": "robots.txt",
+                  "path": "projects/programs/sheddevs-2d-characters/public/robots.txt",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "server.ts",
+              "path": "projects/programs/sheddevs-2d-characters/server.ts",
+              "type": "file"
+            },
+            {
+              "name": "src",
+              "path": "projects/programs/sheddevs-2d-characters/src",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "app",
+                  "path": "projects/programs/sheddevs-2d-characters/src/app",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "api",
+                      "path": "projects/programs/sheddevs-2d-characters/src/app/api",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "health",
+                          "path": "projects/programs/sheddevs-2d-characters/src/app/api/health",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "route.ts",
+                              "path": "projects/programs/sheddevs-2d-characters/src/app/api/health/route.ts",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "favicon.ico",
+                      "path": "projects/programs/sheddevs-2d-characters/src/app/favicon.ico",
+                      "type": "file"
+                    },
+                    {
+                      "name": "globals.css",
+                      "path": "projects/programs/sheddevs-2d-characters/src/app/globals.css",
+                      "type": "file"
+                    },
+                    {
+                      "name": "layout.tsx",
+                      "path": "projects/programs/sheddevs-2d-characters/src/app/layout.tsx",
+                      "type": "file"
+                    },
+                    {
+                      "name": "page.tsx",
+                      "path": "projects/programs/sheddevs-2d-characters/src/app/page.tsx",
+                      "type": "file"
+                    }
+                  ]
+                },
+                {
+                  "name": "components",
+                  "path": "projects/programs/sheddevs-2d-characters/src/components",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "character",
+                      "path": "projects/programs/sheddevs-2d-characters/src/components/character",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "AnimationPlayer.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/character/AnimationPlayer.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "CharacterPreview.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/character/CharacterPreview.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "SpriteSheetExporter.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/character/SpriteSheetExporter.tsx",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "ui",
+                      "path": "projects/programs/sheddevs-2d-characters/src/components/ui",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "accordion.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/accordion.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "alert-dialog.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/alert-dialog.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "alert.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/alert.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "aspect-ratio.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/aspect-ratio.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "avatar.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/avatar.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "badge.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/badge.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "breadcrumb.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/breadcrumb.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "button.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/button.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "calendar.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/calendar.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "card.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/card.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "carousel.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/carousel.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "chart.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/chart.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "checkbox.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/checkbox.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "collapsible.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/collapsible.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "command.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/command.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "context-menu.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/context-menu.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "dialog.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/dialog.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "drawer.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/drawer.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "dropdown-menu.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/dropdown-menu.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "form.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/form.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "hover-card.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/hover-card.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "input-otp.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/input-otp.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "input.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/input.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "label.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/label.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "menubar.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/menubar.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "navigation-menu.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/navigation-menu.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "pagination.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/pagination.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "popover.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/popover.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "progress.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/progress.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "radio-group.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/radio-group.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "resizable.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/resizable.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "scroll-area.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/scroll-area.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "select.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/select.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "separator.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/separator.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "sheet.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/sheet.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "sidebar.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/sidebar.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "skeleton.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/skeleton.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "slider.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/slider.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "sonner.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/sonner.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "switch.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/switch.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "table.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/table.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "tabs.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/tabs.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "textarea.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/textarea.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "toast.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/toast.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "toaster.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/toaster.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "toggle-group.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/toggle-group.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "toggle.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/toggle.tsx",
+                          "type": "file"
+                        },
+                        {
+                          "name": "tooltip.tsx",
+                          "path": "projects/programs/sheddevs-2d-characters/src/components/ui/tooltip.tsx",
+                          "type": "file"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "hooks",
+                  "path": "projects/programs/sheddevs-2d-characters/src/hooks",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "use-mobile.ts",
+                      "path": "projects/programs/sheddevs-2d-characters/src/hooks/use-mobile.ts",
+                      "type": "file"
+                    },
+                    {
+                      "name": "use-toast.ts",
+                      "path": "projects/programs/sheddevs-2d-characters/src/hooks/use-toast.ts",
+                      "type": "file"
+                    }
+                  ]
+                },
+                {
+                  "name": "lib",
+                  "path": "projects/programs/sheddevs-2d-characters/src/lib",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "animation",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/animation",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "apply.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/apply.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "clips.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/clips.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "constraints.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/constraints.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "easing.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/easing.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "edgeDetection.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/edgeDetection.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "fluidMotion.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/fluidMotion.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "schema.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/schema.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "species.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/species.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "spritesheet.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/animation/spritesheet.ts",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "character",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/character",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "generator.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/character/generator.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "types.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/character/types.ts",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "db.ts",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/db.ts",
+                      "type": "file"
+                    },
+                    {
+                      "name": "socket.ts",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/socket.ts",
+                      "type": "file"
+                    },
+                    {
+                      "name": "theme",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/theme",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "default-themes.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/theme/default-themes.ts",
+                          "type": "file"
+                        },
+                        {
+                          "name": "engine.ts",
+                          "path": "projects/programs/sheddevs-2d-characters/src/lib/theme/engine.ts",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "utils.ts",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/utils.ts",
+                      "type": "file"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "tailwind.config.ts",
+              "path": "projects/programs/sheddevs-2d-characters/tailwind.config.ts",
+              "type": "file"
+            },
+            {
+              "name": "tsconfig.json",
+              "path": "projects/programs/sheddevs-2d-characters/tsconfig.json",
+              "type": "file"
+            }
+          ]
+        },
+        {
           "name": "vaeru",
           "path": "projects/programs/vaeru",
           "type": "directory",
@@ -1781,6 +2835,23 @@ export const fileTree = {
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "utility",
+      "path": "projects/utility",
+      "type": "directory",
+      "children": [
+        {
+          "name": "batch_loudnorm.py",
+          "path": "projects/utility/batch_loudnorm.py",
+          "type": "file"
+        },
+        {
+          "name": "image_upscaler.py",
+          "path": "projects/utility/image_upscaler.py",
+          "type": "file"
         }
       ]
     }
