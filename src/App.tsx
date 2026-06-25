@@ -129,7 +129,7 @@ const Hero = () => {
           <img src={profileImg} alt="DAMIEN" className="w-56 h-56 rounded-lg object-cover border-t border-l border-zinc-700/30 shadow-[20px_20px_40px_rgba(0,0,0,0.9),-5px_-5px_15px_rgba(255,255,255,0.02)] hover:scale-[1.02] transition-all duration-1000" />
         </div>
         <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-4">
-          WBDEADSUN
+          DAMIEN
         </h1>
         <p className="text-zinc-500 tracking-[0.5em] uppercase text-sm md:text-base">
           Digital Summoning Rituals and Music
