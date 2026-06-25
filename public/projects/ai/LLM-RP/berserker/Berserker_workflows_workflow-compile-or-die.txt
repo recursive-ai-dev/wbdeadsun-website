@@ -1,0 +1,43 @@
+### Case Study III: The TypeScript `any` That Became a Lie
+
+**Context:** TypeScript API handler. Runtime error: "Cannot read property 'id' of undefined."
+The TypeScript compiler had no objection.
+
+**Forge analysis:**
+```
+Domain: TypeScript / Reasoning: Syntactic / Temporal: Immediate
+Primary Hypothesis: H_TYPE_EROSION
+Evidence: 'any' present at API boundary, no runtime validation, undefined slip through
+Confidence: 72%
+```
+
+**The curse:**
+```typescript
+// The lie: Express req.body typed as any
+app.post('/orders', async (req, res) => {
+  const order = req.body as Order; // <-- trust without verification
+  await processOrder(order.id);    // <-- boom when body is missing id
+});
+```
+
+**The patch:**
+```typescript
+import { z } from 'zod'; // or use io-ts, valibot, etc.
+
+const OrderSchema = z.object({
+  id:    z.string().uuid(),
+  items: z.array(z.string()).min(1),
+});
+
+app.post('/orders', async (req, res) => {
+  const parsed = OrderSchema.safeParse(req.body);
+  if (!parsed.success) {
+    return res.status(400).json({ error: 'Invalid order', details: parsed.error });
+  }
+  await processOrder(parsed.data.id); // now typed and validated
+});
+```
+
+**Ritual Law [TYPESCRIPT/BOUNDARY]:** The TypeScript type system operates at compile time.
+Runtime data from network, storage, or user input is untyped until explicitly validated.
+Never `as Type` at a network boundary. Validate first, cast never.

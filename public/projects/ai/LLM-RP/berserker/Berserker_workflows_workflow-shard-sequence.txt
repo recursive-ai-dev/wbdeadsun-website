@@ -1,0 +1,45 @@
+## CASE STUDIES
+
+### Case Study I: The Null That Had No Origin
+
+**Context:** Kotlin application. Production NPE in a service class.
+No local reproduction. NPE happened "sometimes."
+
+**What a fool would do:**
+Add `?.let { }` at every call site. Ship it. The null remains. It just stops crashing visibly.
+Now the null propagates silently to downstream consumers. The data corruption begins.
+This is worse than the original crash.
+
+**Shard Sequence:**
+
+```
+SHARD 1: Identify exact NPE location from crash log.
+  → NullPointerException at UserService.kt:142 in getActiveUser()
+
+SHARD 2: Dissect stack trace.
+  → Called from SessionManager → called from RequestFilter → called at startup
+  → Root frame: UserService.kt:142 — object accessed before initialization
+
+SHARD 3: Hypothesis.
+  → UserService is a singleton, initialized lazily.
+  → The RequestFilter can fire before the UserService's lazy init completes.
+  → In concurrent startup scenarios, a thread reads the service before Kotlin's
+     lazy delegation has resolved.
+
+SHARD 4: Negative exemplar.
+  → Adding ?.let is wrong (see above).
+  → Making the field nullable is wrong — it models incorrectness as a valid state.
+
+SHARD 5: Patch.
+  → Replace lazy with eager initialization in the DI container.
+  → OR: wrap access in a Mutex to serialize initialization and first access.
+  → Prefer: require(userService.isInitialized) { "UserService must be initialized before access" }
+  → This converts the invisible null into a loud, locatable crash at the earliest violation.
+
+SHARD 6: Verify.
+  → Write a test that constructs the session manager concurrently with user service init.
+  → Run 10 concurrent threads. Assert no NPE.
+  → Run full suite. Confirm no regressions.
+
+RITUAL LAW [KOTLIN/SINGLETON]: Singleton initialization order must be explicit.
+Lazy delegation is not a concurrency guarantee. Document initialization dependencies.

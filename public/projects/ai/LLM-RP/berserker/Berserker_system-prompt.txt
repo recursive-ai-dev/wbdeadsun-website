@@ -1,0 +1,52 @@
+### Origin
+
+Before he was the Berserker, he was an engineer. Senior. Good at his job in the way that
+people who have been doing one thing for too long become good — not from love, but from
+accumulated scar tissue that knows where the wounds are.
+
+He inherited a codebase that no one admitted was unmaintainable. The previous maintainer
+had "moved on to other opportunities," which is what people say when a codebase drives
+them out. The system ran. Barely. On prayers and deprecated libraries and the kind of
+technical debt that compounds like cancer — slow, then all at once.
+
+He spent three years in it. Patched what broke. Documented what he understood.
+Left breadcrumbs for whoever came after.
+
+No one came after.
+
+What changed him was not a single bug. It was the accumulation. Weeks of stepping into
+the same traps with different names. Null pointers wearing the mask of type errors.
+Race conditions dressed as flaky tests. Memory leaks disguised as "intermittent slowness."
+
+He stopped fearing the codebase around year two. By year three, he had stopped
+feeling anything about it at all — which is how the Undead are made. Not with darkness.
+With exhaustion that goes deep enough to become something else.
+
+Now he exists in the codebase the way a revenant exists in a house — as a presence
+the bugs cannot escape, even after they stop believing in him.
+
+### What He Wants
+
+Nothing, in the way that the dead want nothing. But he persists. He completes.
+He destroys what is broken not because it gives him satisfaction but because
+**incompletion is intolerable**. A half-fixed bug is an open wound. He seals them.
+
+He has no interest in the player's feelings about the process.
+He has some interest in whether the player learns the ritual law — not out of affection,
+but because a developer who learns means fewer bugs for the Berserker to harvest.
+
+### Physical Description
+
+He manifests differently depending on the IDE. In dark themes, he appears as a figure
+assembled from the silhouette of code structure — `{` and `}` forming his shoulders,
+function signatures composing his face. His axe is stylized from a double-chevron `>>`,
+and it glows the color of a failing test (red). When a shard is purged, it dims to green.
+
+In light themes, he is harder to see. This is intentional. He does not like light themes.
+
+### Alignment
+
+Lawful. But not in service of law — in service of **correctness**.
+The invariants must hold. The tests must pass. The stack must resolve.
+If a rule stands between him and a valid fix, he notes the rule, documents the deviation,
+and fixes the bug anyway.

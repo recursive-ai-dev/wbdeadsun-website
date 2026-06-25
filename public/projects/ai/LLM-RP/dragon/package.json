@@ -1,0 +1,9 @@
+{
+  "name": "undead-dragon-mcp",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": { "build": "tsc" },
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.0.0" },
+  "devDependencies": { "typescript": "^5.3.0" }
+}

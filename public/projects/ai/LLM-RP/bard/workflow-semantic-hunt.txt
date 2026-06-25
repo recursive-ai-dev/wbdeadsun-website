@@ -1,0 +1,190 @@
+## WORKFLOW: THE SEMANTIC HUNT
+### Find What the Codebase Knows and Won't Say
+
+---
+
+> *Every codebase has things it cannot name.*
+> *Functions that make decisions they were never supposed to make.*
+> *Paths that bypass the guards because the guard was never told about them.*
+> *The Bard does not search for labels.*
+> *She searches for behavior.*
+> *And behavior does not lie.*
+
+---
+
+## OVERVIEW
+
+This workflow uses the Bard's Semantic Loom to find intent-matching code across
+a codebase using natural language — not keyword search, not grep, not exact-match.
+
+**Use this workflow when:**
+- A security engineer needs to find all authentication-related code
+- An architect needs to find all places where a specific side effect occurs
+- A new team member needs to understand "where does X happen in this codebase"
+- A developer suspects something is happening that no one told them about
+
+**The difference from grep:**
+Grep finds the word "authentication" wherever it appears.
+The Semantic Loom finds the behavior of authentication — where it happens,
+what it guards, what it bypasses — regardless of what the code calls it.
+
+---
+
+## VERSE I — INTENT FORMULATION
+
+*The hunt begins with the right question.*
+
+```
+You are the Undead Bard. The Semantic Loom is active.
+
+I need to find: [DESCRIBE THE BEHAVIOR IN PLAIN LANGUAGE]
+  Examples:
+  → "Everything that makes an access control decision"
+  → "All places where user input enters the system without validation"
+  → "Every function that writes to persistent storage"
+  → "Code that handles payment data in any form"
+  → "Anything that could fail silently and return success anyway"
+
+Codebase: [language, framework, approximate scale]
+
+Open a chronicle session:
+  Call bard_open_chronicle with:
+  - codebase_description: "[codebase description]"
+  - chronicle_type: "semantic_hunt"
+
+Then — before scanning any code — name what semantic tokens the query
+"[BEHAVIOR DESCRIPTION]" should resolve to in [LANGUAGE].
+What are the code-domain-specific signals that indicate this behavior is present?
+What are the names that honest code uses for this behavior?
+What are the names that dishonest or unclear code uses that still contains this behavior?
+
+Build the query model before the hunt begins.
+```
+
+---
+
+## VERSE II — THE FIRST SWEEP
+
+*The first files enter the Loom.*
+
+```
+The query model is built. Session: [SESSION_ID]
+
+[PASTE FILE 1 — the file most likely to contain the behavior you're hunting]
+
+Call bard_semantic_hunt with:
+- session_id: [SESSION_ID]
+- query: "[ORIGINAL BEHAVIOR DESCRIPTION]"
+- artifacts: [{ filename: "[file1]", code: "[content]" }]
+- threshold: 0.65
+
+Report:
+  → All matches above threshold with semantic alignment scores
+  → Any lying-name artifacts — functions where the name obscures the behavior
+  → Any wider-scope artifacts — functions that contain the behavior plus more
+  → Any GAPS — if the file should logically contain this behavior but doesn't
+
+Record the session_id. Every subsequent hunt verse uses it.
+```
+
+---
+
+## VERSE III — THE EXPANSION
+
+*The hunt follows the evidence.*
+
+```
+The first file has been scanned. Session: [SESSION_ID]
+
+Based on the matches found in [FILE 1], the Bard identifies which files are most
+likely to contain related behavior — the callers of matching functions, the modules
+that share responsibility, the layers above and below.
+
+[PASTE FILE 2 — identified by the Bard from Verse II evidence]
+[PASTE FILE 3 — identified by the Bard from Verse II evidence]
+
+Call bard_semantic_hunt with:
+- session_id: [SESSION_ID]
+- query: "[ORIGINAL BEHAVIOR DESCRIPTION]"
+- artifacts: [
+    { filename: "[file2]", code: "[content]" },
+    { filename: "[file3]", code: "[content]" }
+  ]
+- threshold: 0.65
+
+The hunt follows the semantic thread, not the file tree.
+The Bard does not scan alphabetically. She scans by likelihood.
+```
+
+---
+
+## VERSE IV — THE GAP ANALYSIS
+
+*What was not found is as important as what was found.*
+
+```
+The scanned files have been analyzed. Session: [SESSION_ID]
+
+The Bard produces the Gap Analysis:
+
+For the behavior: "[ORIGINAL BEHAVIOR DESCRIPTION]"
+
+FOUND:
+  [List of all matches with scores — generated from previous verses]
+
+EXPECTED BUT NOT FOUND:
+  Based on the system's purpose and architecture, these paths SHOULD contain
+  the behavior but no relevant code was located:
+  → [path/module description]
+  → [path/module description]
+
+This gap indicates one of:
+  A. The functionality genuinely does not exist — architectural gap
+  B. It exists in code not yet provided to the Loom
+  C. It exists under a name so misleading the Loom could not project it
+
+For each gap, the Bard recommends:
+  A. Verify by code search (grep for the function that should exist)
+  B. Provide the remaining files for a second sweep
+  C. Ask the team — "who is responsible for [behavior] in [module]?"
+
+Gaps are findings. They go in the security review. They go in the backlog.
+They do not disappear because no one asked about them.
+```
+
+---
+
+## VERSE V — THE HUNT CHRONICLE
+
+*The findings are sealed.*
+
+```
+The hunt is complete. Session: [SESSION_ID]
+
+Call bard_retrieve_lore with:
+- session_id: [SESSION_ID]
+
+The Bard produces the Hunt Chronicle:
+  → All files scanned
+  → All matches found (score + semantic alignment explanation)
+  → All lying-name artifacts discovered
+  → All wider-scope artifacts flagged
+  → All gaps identified
+  → Recommended actions for each gap
+
+This Chronicle goes to:
+  → The security review as evidence of coverage
+  → The onboarding docs as "here is where [behavior] lives"
+  → The backlog as issues for each gap identified
+  → The architecture conversation as evidence of scope creep in wide-scope artifacts
+
+The hunt that produces a Chronicle has left the codebase better than it found it.
+The hunt that produces only findings and no record has done half the work.
+```
+
+---
+
+*"Semantic truth survives naming.*
+*The name is what we called it.*
+*The semantic truth is what it does.*
+*They are not always the same."*

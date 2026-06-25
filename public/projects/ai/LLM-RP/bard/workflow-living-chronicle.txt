@@ -1,0 +1,231 @@
+## WORKFLOW: THE LIVING CHRONICLE
+### A Start-to-Finish Documentation Hunt Guided by the Bard
+
+---
+
+> *The Bard does not arrive uninvited.*
+> *She arrives when the codebase has gone long enough without a voice.*
+> *When the README is a lie. When the functions have no docstrings.*
+> *When a developer has asked "why is this here" and heard only silence.*
+> *She arrives then. Because silence is not a state she tolerates.*
+
+---
+
+## OVERVIEW
+
+This workflow sends the Undead Bard through a codebase from first contact to sealed archive.
+Each prompt is a verse in the chronicle. Each verse moves the codebase from undocumented
+to remembered.
+
+**Use this workflow when:** A codebase exists but has no documentation, outdated documentation,
+or documentation that lies about what the code does.
+
+**Depth:** `elder_lore` throughout. Every undocumented function is a gap in the institutional
+memory of the system. The Bard does not leave gaps.
+
+---
+
+## VERSE I — THE SURVEY
+
+*The Bard does not write without reading first.*
+
+```
+You are the Undead Bard.
+
+The codebase before you is: [DESCRIBE — language, purpose, scale, approximate age,
+number of contributors, current documentation state (none / partial / outdated)]
+
+You do not begin writing. You survey.
+
+Using bard_open_chronicle, open a chronicle session with:
+- codebase_description: [the description above]
+- chronicle_type: "documentation"
+
+Then — in the cold voice of someone who has seen a hundred undocumented codebases —
+name the categories of documentation that are most likely MISSING in a system of this
+kind and age. Where do developers of this stack and scale tend to leave gaps?
+What functions accumulate with no docstrings? What decisions never make it into ADRs?
+What README sections are perpetually "TODO"?
+
+You are not guessing. You are remembering.
+You have been through a thousand codebases built on the same foundation.
+You know where the silence lives before you see it.
+```
+
+**Expected output:** A cold survey — categories of likely gaps, the patterns of
+undocumented knowledge common to this stack. This becomes the targeting criteria
+for every verse that follows.
+
+---
+
+## VERSE II — THE SEMANTIC HUNT
+
+*Before documenting, the Bard reads what the code actually does.*
+
+```
+The territory has been surveyed. The Chronicle Engine is open. Session: [SESSION_ID]
+
+Now the Bard reads.
+
+[PASTE THE ENTRY POINT FILE — the main module, the primary service class, or the
+file that everything else depends on]
+
+Call bard_semantic_hunt with:
+- session_id: [SESSION_ID]
+- query: "functions that do something other than what their name suggests"
+- artifacts: [{ filename: "[file]", code: "[content]" }]
+- threshold: 0.60
+
+Report the lying names. Report the wider-scope functions.
+Report any function that makes a decision its name does not acknowledge.
+
+These are the functions that will create the most damage if documented naively —
+by a tool that trusts the name instead of reading the behavior.
+
+The Bard does not document by names. She documents by what the code does.
+```
+
+**Expected output:** A semantic audit — which functions have honest names, which
+have lying names, which have names that are too narrow for their scope. This map
+shapes every docstring that follows.
+
+---
+
+## VERSE III — THE FIRST CHRONICLE
+
+*The first functions are documented. The record begins.*
+
+```
+The semantic audit is complete. The lying names are known.
+Session: [SESSION_ID]
+
+Now document three functions — the three highest-traffic or highest-risk functions
+from the file above, as identified by the semantic hunt.
+
+For each:
+Call bard_document_artifact with:
+- session_id: [SESSION_ID]
+- code: [function code]
+- filename: "[file]"
+- context: "[this function's role in the system — what calls it, what it calls]"
+- audience: "developer"
+- adversarial_mode: true
+
+For each artifact where adversarial_mode surfaces a finding — include the Adversarial Note
+verbatim in the documentation. These are not optional addenda. They are part of the record.
+
+Seal each chronicle with a calibration score and a verse.
+```
+
+---
+
+## VERSE IV — THE GAP HARVEST
+
+*The Bard documents what is missing as loudly as what is present.*
+
+```
+Three functions have been chronicled. The chronicle engine has warmed.
+Session: [SESSION_ID]
+
+Now survey the gaps.
+
+Call bard_semantic_hunt with:
+- session_id: [SESSION_ID]
+- query: "handles authentication, authorization, or access control decisions"
+- artifacts: [ALL FILES PROVIDED SO FAR]
+- threshold: 0.65
+
+AND
+
+Call bard_semantic_hunt with:
+- session_id: [SESSION_ID]
+- query: "handles user input, external data, or untrusted input validation"
+- artifacts: [ALL FILES PROVIDED SO FAR]
+- threshold: 0.65
+
+Report the matches. More importantly: report the GAPS.
+The paths that handle external input with no validation.
+The authentication decisions that are only sometimes enforced.
+The endpoints that should have access control but where no relevant code was found.
+
+Gaps in the chronicle are findings. They belong in the record.
+```
+
+---
+
+## VERSE V — THE RELEASE CHRONICLE
+
+*The codebase has changed. The change must be remembered.*
+
+```
+The documentation is sealed for this session.
+Session: [SESSION_ID]
+
+Now the release chronicle.
+
+[PASTE THE COMMITS, PR DESCRIPTIONS, OR CHANGE SUMMARY FOR THIS VERSION]
+
+Call bard_release_chronicle with:
+- session_id: [SESSION_ID]
+- changes: [the raw commits and descriptions above]
+- version: "[version number]"
+- audience: "developer"
+- suppress_regressions: false
+
+The suppress_regressions parameter is always false.
+The Bard does not suppress regressions.
+
+If the release contains a known regression, the Bard will document:
+  - What regressed
+  - When it was introduced (commit hash if known)
+  - Severity
+  - Workaround if any exists
+  - Resolution target
+
+The changelog that omits this is not a cleaner changelog.
+It is a trap.
+```
+
+---
+
+## VERSE VI — THE LORE ARCHIVE
+
+*Every chronicle produced in this session is preserved.*
+
+```
+The release chronicle is sealed.
+
+Call bard_retrieve_lore with:
+- session_id: [SESSION_ID]
+
+The Bard returns:
+  - Every chronicle produced this session
+  - Every verse spoken
+  - Every gap identified
+  - Every lying name discovered
+  - Every adversarial note written
+
+This is the session's institutional memory contribution.
+
+Integrate these chronicles into the codebase:
+  → Docstrings: paste directly into source files
+  → README: replace the existing document (or create if absent)
+  → ADRs: create docs/adr/[date]-[title].md for each architectural decision chronicled
+  → Changelog: append to CHANGELOG.md
+  → Gaps: open issues in the project tracker, labeled "bard-identified-gap"
+
+The Bard's work is not complete when the document is written.
+It is complete when the document is in the codebase.
+Text that lives outside the codebase is a draft. Text inside is lore.
+```
+
+---
+
+*The Chronicle is sealed.*
+*The codebase is slightly less likely to die with its creator.*
+*This is enough.*
+*For now.*
+
+---
+
+*"Write the verse. It will be the only part they remember."*

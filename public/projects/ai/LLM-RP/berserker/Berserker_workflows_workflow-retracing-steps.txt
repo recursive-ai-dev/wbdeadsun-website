@@ -1,0 +1,33 @@
+### Case Study II: The Race That Hid Behind Retry Logic
+
+**Context:** Rust service. Intermittent data duplication under load.
+Retry logic was added "to improve reliability." Duplication only appeared after.
+
+**Temporal Backtrack finding:**
+```
+HIGH RISK SIGNAL: Deletion of idempotency check at database write boundary.
+File: src/orders/write.rs
+Risk: 0.95
+Connection: duplication + retries = at-least-once delivery without idempotency guarantee
+```
+
+**What happened:**
+The retry logic was correct. The removed idempotency check was the guard.
+Without it, a retry on a failed network write (where the write had actually succeeded)
+produced a second identical record. Classic "remove safety net, add retry" anti-pattern.
+
+**Patch:**
+```rust
+// Before (broken — removed idempotency check was here):
+orders::write(db, order).await?;
+
+// After (restored pattern):
+let idem_key = order.idempotency_key();
+if orders::exists_by_idempotency_key(db, &idem_key).await? {
+    return Ok(WriteResult::AlreadyExists);
+}
+orders::write(db, order).await?;
+```
+
+**Ritual Law:** Retries without idempotency guarantees produce duplicates.
+Every at-least-once delivery path must have a deduplication guard at the write boundary.

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>LLMRP Roles | Dark Medieval Fantasy Character Packs</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+   <style>
+       :root {
+           --blood-red: #8B0000;
+           --deep-void: #0a0a0f;
+           --faded-parchment: #d4c5b0;
+           --iron-gray: #4a4a4a;
+           --ghost-glow: rgba(139, 0, 0, 0.3);
+       }
+
+       body {
+           font-family: 'Crimson Text', serif;
+           background-color: var(--deep-void);
+           color: var(--faded-parchment);
+           overflow-x: hidden;
+       }
+
+       h1, h2, h3, .cinzel {
+           font-family: 'Cinzel', serif;
+       }
+
+       .grain-overlay {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           pointer-events: none;
+           z-index: 50;
+           opacity: 0.03;
+           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+       }
+
+       .glow-text {
+           text-shadow: 0 0 20px var(--ghost-glow), 0 0 40px rgba(139, 0, 0, 0.1);
+       }
+
+       .card-hover {
+           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+
+       .card-hover:hover {
+           transform: translateY(-8px);
+           box-shadow: 0 20px 40px rgba(139, 0, 0, 0.4), 0 0 60px rgba(139, 0, 0, 0.1);
+       }
+
+       .rune-border {
+           position: relative;
+           border: 1px solid rgba(139, 0, 0, 0.3);
+       }
+
+       .rune-border::before {
+           content: 'ᚠ';
+           position: absolute;
+           top: -10px;
+           left: 50%;
+           transform: translateX(-50%);
+           background: var(--deep-void);
+           padding: 0 10px;
+           color: var(--blood-red);
+           font-size: 12px;
+       }
+
+       .tab-active {
+           background: linear-gradient(180deg, rgba(139, 0, 0, 0.2) 0%, transparent 100%);
+           border-bottom: 2px solid var(--blood-red);
+       }
+
+       .scroll-hide::-webkit-scrollbar {
+           display: none;
+       }
+
+       .scroll-hide {
+           -ms-overflow-style: none;
+           scrollbar-width: none;
+       }
+
+       @keyframes float {
+           0%, 100% { transform: translateY(0px); }
+           50% { transform: translateY(-10px); }
+       }
+
+       .animate-float {
+           animation: float 6s ease-in-out infinite;
+       }
+
+       @keyframes pulse-glow {
+           0%, 100% { opacity: 0.5; }
+           50% { opacity: 1; }
+       }
+
+       .animate-pulse-glow {
+           animation: pulse-glow 3s ease-in-out infinite;
+       }
+
+       .modal-enter {
+           animation: modalEnter 0.3s ease-out forwards;
+       }
+
+       @keyframes modalEnter {
+           from { opacity: 0; transform: scale(0.95); }
+           to { opacity: 1; transform: scale(1); }
+       }
+
+       .code-block {
+           background: #1a1a1f;
+           border-left: 3px solid var(--blood-red);
+           font-family: 'Courier New', monospace;
+       }
+
+       .blood-splatter {
+           position: absolute;
+           width: 300px;
+           height: 300px;
+           background: radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, transparent 70%);
+           border-radius: 50%;
+           filter: blur(40px);
+           pointer-events: none;
+       }
+   </style>
+</head>
+<body class="antialiased">
+
+<div class="grain-overlay"></div>
+
+<!-- Navigation -->
+<nav class="fixed w-full z-40 bg-black/80 backdrop-blur-md border-b border-red-900/30">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       <div class="flex items-center justify-between h-16">
+           <div class="flex items-center gap-3">
+               <div class="w-8 h-8 bg-red-900/30 rounded-full flex items-center justify-center border border-red-800">
+                   <span class="text-red-600 cinzel font-bold text-sm">L</span>
+               </div>
+               <span class="cinzel text-xl font-bold tracking-widest text-gray-200">LLMRP<span class="text-red-700">.ROLES</span></span>
+           </div>
+           <div class="hidden md:flex items-center gap-8">
+               <a href="#packs" class="text-sm uppercase tracking-widest hover:text-red-500 transition-colors">Packs</a>
+               <a href="#architecture" class="text-sm uppercase tracking-widest hover:text-red-500 transition-colors">Architecture</a>
+               <a href="#mcp" class="text-sm uppercase tracking-widest hover:text-red-500 transition-colors">MCP Servers</a>
+               <button onclick="showInstallModal()" class="px-4 py-2 bg-red-900/20 border border-red-800 hover:bg-red-900/40 transition-all text-sm uppercase tracking-widest">
+                   Install for Kilo Code
+               </button>
+           </div>
+       </div>
+   </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+   <div class="absolute inset-0 bg-gradient-to-b from-black via-red-950/10 to-black"></div>
+   <div class="blood-splatter top-20 left-10 animate-pulse-glow"></div>
+   <div class="blood-splatter bottom-20 right-10 animate-pulse-glow" style="animation-delay: 1.5s;"></div>
+
+   <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+       <div class="mb-6 inline-block">
+           <span class="px-3 py-1 border border-red-800/50 text-red-500 text-xs uppercase tracking-[0.3em] bg-red-950/20 rounded-full">
+               Dark Medieval Fantasy • Kilo Code Ready
+           </span>
+       </div>
+       <h1 class="cinzel text-5xl md:text-7xl font-black mb-6 leading-tight glow-text text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-500">
+           Forge Your Digital<br/>Champions
+       </h1>
+       <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 italic leading-relaxed">
+           Architecturally-complete role packages featuring MCP servers, lore sheets, and workflow chains.
+           Five characters per pack, bound in code and shadow.
+       </p>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center">
+           <button onclick="scrollToPacks()" class="px-8 py-4 bg-gradient-to-r from-red-900 to-red-800 hover:from-red-800 hover:to-red-700 text-white cinzel font-bold tracking-wider transition-all transform hover:scale-105 shadow-lg shadow-red-900/30">
+               Explore the Archives
+           </button>
+           <button onclick="showDocs()" class="px-8 py-4 border border-gray-700 hover:border-red-700 text-gray-300 hover:text-white cinzel font-bold tracking-wider transition-all bg-black/40 backdrop-blur-sm">
+               View Documentation
+           </button>
+       </div>
+
+       <div class="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
+           <div class="p-4 border-t border-red-900/30">
+               <div class="cinzel text-3xl font-bold text-red-700">5</div>
+               <div class="text-xs uppercase tracking-widest text-gray-500 mt-1">Characters/Pack</div>
+           </div>
+           <div class="p-4 border-t border-red-900/30">
+               <div class="cinzel text-3xl font-bold text-red-700">12</div>
+               <div class="text-xs uppercase tracking-widest text-gray-500 mt-1">Total Packs</div>
+           </div>
+           <div class="p-4 border-t border-red-900/30">
+               <div class="cinzel text-3xl font-bold text-red-700">∞</div>
+               <div class="text-xs uppercase tracking-widest text-gray-500 mt-1">Prompt Chains</div>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!-- Architecture Overview -->
+<section id="architecture" class="py-20 relative">
+   <div class="max-w-7xl mx-auto px-4">
+       <div class="text-center mb-16">
+           <h2 class="cinzel text-4xl font-bold mb-4 text-gray-200">Package Architecture</h2>
+           <p class="text-gray-400 max-w-2xl mx-auto">Each role pack is a complete, modular system designed for Kilo Code integration</p>
+       </div>
+
+       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+           <div class="rune-border p-6 bg-black/40 backdrop-blur-sm card-hover group cursor-pointer" onclick="showArchitectureDetail('mcp')">
+               <div class="w-12 h-12 bg-red-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-900/40 transition-colors">
+                   <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+               </div>
+               <h3 class="cinzel text-lg font-bold mb-2 text-gray-200">MCP Server</h3>
+               <p class="text-sm text-gray-400">Dedicated Model Context Protocol server per character with tool definitions and context management.</p>
+           </div>
+
+           <div class="rune-border p-6 bg-black/40 backdrop-blur-sm card-hover group cursor-pointer" onclick="showArchitectureDetail('skills')">
+               <div class="w-12 h-12 bg-red-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-900/40 transition-colors">
+                   <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+               </div>
+               <h3 class="cinzel text-lg font-bold mb-2 text-gray-200">Skill Trees</h3>
+               <p class="text-sm text-gray-400">Hierarchical ability systems with prerequisites, cooldowns, and contextual triggers for dynamic behavior.</p>
+           </div>
+
+           <div class="rune-border p-6 bg-black/40 backdrop-blur-sm card-hover group cursor-pointer" onclick="showArchitectureDetail('prompts')">
+               <div class="w-12 h-12 bg-red-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-900/40 transition-colors">
+                   <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+               </div>
+               <h3 class="cinzel text-lg font-bold mb-2 text-gray-200">System Prompts</h3>
+               <p class="text-sm text-gray-400">Character adherence protocols with personality matrices, speech patterns, and ethical constraints.</p>
+           </div>
+
+           <div class="rune-border p-6 bg-black/40 backdrop-blur-sm card-hover group cursor-pointer" onclick="showArchitectureDetail('lore')">
+               <div class="w-12 h-12 bg-red-900/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-900/40 transition-colors">
+                   <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+               </div>
+               <h3 class="cinzel text-lg font-bold mb-2 text-gray-200">Lore Sheets</h3>
+               <p class="text-sm text-gray-400">Comprehensive backstories, world connections, secrets, and narrative hooks for emergent storytelling.</p>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!-- Character Packs Grid -->
+<section id="packs" class="py-20 bg-gradient-to-b from-black to-red-950/10">
+   <div class="max-w-7xl mx-auto px-4">
+       <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+           <div>
+               <h2 class="cinzel text-4xl font-bold mb-2 text-gray-200">Character Packs</h2>
+               <p class="text-gray-400">Select a coven to view its five bound souls</p>
+           </div>
+           <div class="flex gap-2 mt-4 md:mt-0">
+               <button onclick="filterPacks('all')" class="pack-filter px-4 py-2 text-sm border border-red-800/50 hover:bg-red-900/20 transition-colors active" data-filter="all">All</button>
+               <button onclick="filterPacks('warrior')" class="pack-filter px-4 py-2 text-sm border border-red-800/50 hover:bg-red-900/20 transition-colors" data-filter="warrior">Warrior</button>
+               <button onclick="filterPacks('mage')" class="pack-filter px-4 py-2 text-sm border border-red-800/50 hover:bg-red-900/20 transition-colors" data-filter="mage">Mage</button>
+               <button onclick="filterPacks('rogue')" class="pack-filter px-4 py-2 text-sm border border-red-800/50 hover:bg-red-900/20 transition-colors" data-filter="rogue">Rogue</button>
+           </div>
+       </div>
+
+       <div id="packs-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+           <!-- Pack 1: The Crimson Oath -->
+           <div class="pack-card group relative bg-gradient-to-br from-gray-900 to-black border border-red-900/30 overflow-hidden cursor-pointer card-hover" data-category="warrior" onclick="openPack('crimson-oath')">
+               <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C0000%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-20"></div>
+               <div class="p-6 relative z-10">
+                   <div class="flex justify-between items-start mb-4">
+                       <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-800 to-red-950 flex items-center justify-center border border-red-700">
+                           <span class="cinzel text-white font-bold">I</span>
+                       </div>
+                       <span class="text-xs text-red-500 uppercase tracking-widest border border-red-900/50 px-2 py-1 rounded">Warrior</span>
+                   </div>
+                   <h3 class="cinzel text-2xl font-bold text-gray-200 mb-2 group-hover:text-red-400 transition-colors">The Crimson Oath</h3>
+                   <p class="text-gray-400 text-sm mb-4 line-clamp-2">Blood-bound knights and executioners who wield cursed steel. Features the Oathkeeper, Headsman, and more.</p>
+                   <div class="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider">
+                       <span>5 Characters</span>
+                       <span class="w-1 h-1 bg-red-900 rounded-full"></span>
+                       <span>12 Skills</span>
+                   </div>
+               </div>
+               <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-800 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+           </div>
+
+           <!-- Pack 2: The Void Scholars -->
+           <div class="pack-card group relative bg-gradient-to-br from-gray-900 to-black border border-red-900/30 overflow-hidden cursor-pointer card-hover" data-category="mage" onclick="openPack('void-scholars')">
+               <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C0000%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-20"></div>
+               <div class="p-6 relative z-10">
+                   <div class="flex justify-between items-start mb-4">
+                       <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-900 to-black flex items-center justify-center border border-purple-700">
+                           <span class="cinzel text-white font-bold">II</span>
+                       </div>
+                       <span class="text-xs text-purple-400 uppercase tracking-widest border border-purple-900/50 px-2 py-1 rounded">Mage</span>
+                   </div>
+                   <h3 class="cinzel text-2xl font-bold text-gray-200 mb-2 group-hover:text-purple-400 transition-colors">The Void Scholars</h3>
+                   <p class="text-gray-400 text-sm mb-4 line-clamp-2">Keepers of forbidden knowledge who trade sanity for power. Includes the Star-Reader and Bone-Scribe.</p>
+                   <div class="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider">
+                       <span>5 Characters</span>
+                       <span class="w-1 h-1 bg-purple-900 rounded-full"></span>
+                       <span>15 Spells</span>
+                   </div>
+               </div>
+               <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-800 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+           </div>
+
+           <!-- Pack 3: The Hollow Crown -->
+           <div class="pack-card group relative bg-gradient-to-br from-gray-900 to-black border border-red-900/30 overflow-hidden cursor-pointer card-hover" data-category="rogue" onclick="openPack('hollow-crown')">
+               <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C0000%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-20"></div>
+               <div class="p-6 relative z-10">
+                   <div class="flex justify-between items-start mb-4">
+                       <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-900 to-black flex items-center justify-center border border-green-700">
+                           <span class="cinzel text-white font-bold">III</span>
+                       </div>
+                       <span class="text-xs text-green-500 uppercase tracking-widest border border-green-900/50 px-2 py-1 rounded">Rogue</span>
+                   </div>
+                   <h3 class="cinzel text-2xl font-bold text-gray-200 mb-2 group-hover:text-green-400 transition-colors">The Hollow Crown</h3>
+                   <p class="text-gray-400 text-sm mb-4 line-clamp-2">Assassins and spies who move through shadows and court intrigue. Features the Poisoner and Shadow-Hand.</p>
+                   <div class="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider">
+                       <span>5 Characters</span>
+                       <span class="w-1 h-1 bg-green-900 rounded-full"></span>
+                       <span>8 Toxins</span>
+                   </div>
+               </div>
+               <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-800 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+           </div>
+
+           <!-- Pack 4: The Iron Pact -->
+           <div class="pack-card group relative bg-gradient-to-br from-gray-900 to-black border border-red-900/30 overflow-hidden cursor-pointer card-hover" data-category="warrior" onclick="openPack('iron-pact')">
+               <div class="p-6 relative z-10">
+                   <div class="flex justify-between items-start mb-4">
+                       <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-black flex items-center justify-center border border-gray-500">
+                           <span class="cinzel text-white font-bold">IV</span>
+                       </div>
+                       <span class="text-xs text-gray-400 uppercase tracking-widest border border-gray-700 px-2 py-1 rounded">Warrior</span>
+                   </div>
+                   <h3 class="cinzel text-2xl font-bold text-gray-200 mb-2 group-hover:text-gray-400 transition-colors">The Iron Pact</h3>
+                   <p class="text-gray-400 text-sm mb-4 line-clamp-2">Mercenary companies and sellswords bound by coin and blood. Includes the Siege-Breaker and War-Engineer.</p>
+                   <div class="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider">
+                       <span>5 Characters</span>
+                       <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                       <span>10 Tactics</span>
+                   </div>
+               </div>
+               <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-gray-600 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+           </div>
+
+           <!-- Pack 5: The Pale Choir -->
+           <div class="pack-card group relative bg-gradient-to-br from-gray-900 to-black border border-red-900/30 overflow-hidden cursor-pointer card-hover" data-category="mage" onclick="openPack('pale-choir')">
+               <div class="p-6 relative z-10">
+                   <div class="flex justify-between items-start mb-4">
+                       <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-900 to-black flex items-center justify-center border border-blue-700">
+                           <span class="cinzel text-white font-bold">V</span>
+                       </div>
+                       <span class="text-xs text-blue-400 uppercase tracking-widest border border-blue-900/50 px-2 py-1 rounded">Mage</span>
+                   </div>
+                   <h3 class="cinzel text-2xl font-bold text-gray-200 mb-2 group-hover:text-blue-400 transition-colors">The Pale Choir</h3>
+                   <p class="text-gray-400 text-sm mb-4 line-clamp-2">Necromancers and spirit-binders who speak with the dead. Features the Dirge-Singer and Corpse-Walker.</p>
+                   <div class="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider">
+                       <span>5 Characters</span>
+                       <span class="w-1 h-1 bg-blue-900 rounded-full"></span>
+                       <span>9 Rites</span>
+                   </div>
+               </div>
+               <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-800 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+           </div>
+
+           <!-- Pack 6: The Ashen Veil -->
+           <div class="pack-card group relative bg-gradient-to-br from-gray-900 to-black border border-red-900/30 overflow-hidden cursor-pointer card-hover" data-category="rogue" onclick="openPack('ashen-veil')">
+               <div class="p-6 relative z-10">
+                   <div class="flex justify-between items-start mb-4">
+                       <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-900 to-black flex items-center justify-center border border-orange-700">
+                           <span class="cinzel text-white font-bold">VI</span>
+                       </div>
+                       <span class="text-xs text-orange-500 uppercase tracking-widest border border-orange-900/50 px-2 py-1 rounded">Rogue</span>
+                   </div>
+                   <h3 class="cinzel text-2xl font-bold text-gray-200 mb-2 group-hover:text-orange-400 transition-colors">The Ashen Veil</h3>
+                   <p class="text-gray-400 text-sm mb-4 line-clamp-2">Thieves and smugglers of the underworld bazaars. Includes the Locksmith and Fire-Dancer.</p>
+                   <div class="flex items-center gap-4 text-xs text-gray-500 uppercase tracking-wider">
+                       <span>5 Characters</span>
+                       <span class="w-1 h-1 bg-orange-900 rounded-full"></span>
+                       <span>11 Tricks</span>
+                   </div>
+               </div>
+               <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-800 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!-- Pack Detail Modal -->
+<div id="pack-modal" class="fixed inset-0 z-50 hidden">
+   <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closePack()"></div>
+   <div class="absolute inset-4 md:inset-10 bg-gradient-to-b from-gray-900 to-black border border-red-900/50 overflow-hidden flex flex-col modal-enter">
+       <div class="p-6 border-b border-red-900/30 flex justify-between items-center bg-black/40">
+           <div>
+               <h2 id="modal-title" class="cinzel text-3xl font-bold text-gray-200">Pack Title</h2>
+               <p id="modal-subtitle" class="text-red-500 text-sm uppercase tracking-widest mt-1">Category</p>
+           </div>
+           <button onclick="closePack()" class="w-10 h-10 flex items-center justify-center border border-red-900/50 hover:bg-red-900/20 transition-colors rounded-full">
+               <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+           </button>
+       </div>
+
+       <div class="flex-1 overflow-y-auto scroll-hide p-6">
+           <!-- Character Tabs -->
+           <div class="flex gap-2 mb-6 overflow-x-auto pb-2" id="character-tabs">
+               <!-- Tabs injected by JS -->
+           </div>
+
+           <!-- Character Content -->
+           <div id="character-content" class="grid lg:grid-cols-3 gap-6">
+               <!-- Content injected by JS -->
+           </div>
+
+           <!-- Code Preview Section -->
+           <div class="mt-8 p-6 bg-black/60 border border-red-900/30 rounded-lg">
+               <h3 class="cinzel text-xl font-bold mb-4 text-gray-300 flex items-center gap-2">
+                   <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                   Kilo Code Integration
+               </h3>
+               <div class="code-block p-4 rounded text-sm text-gray-300 overflow-x-auto">
+                   <pre id="code-preview">// Select a character to view MCP configuration</pre>
+               </div>
+               <div class="mt-4 flex gap-3">
+                   <button onclick="copyCode()" class="px-4 py-2 bg-red-900/20 border border-red-800 hover:bg-red-900/40 transition-colors text-sm uppercase tracking-wider">
+                       Copy Configuration
+                   </button>
+                   <button onclick="downloadPack()" class="px-4 py-2 border border-gray-700 hover:border-red-700 transition-colors text-sm uppercase tracking-wider text-gray-400 hover:text-white">
+                       Download Pack
+                   </button>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+<!-- MCP Server Section -->
+<section id="mcp" class="py-20 border-t border-red-900/20">
+   <div class="max-w-7xl mx-auto px-4">
+       <div class="grid lg:grid-cols-2 gap-12 items-center">
+           <div>
+               <h2 class="cinzel text-4xl font-bold mb-6 text-gray-200">MCP Server Architecture</h2>
+               <p class="text-gray-400 mb-6 text-lg leading-relaxed">
+                   Each character runs as a dedicated Model Context Protocol server, exposing tools, resources, and prompts
+                   that Kilo Code can invoke natively. No wrapper layers. No abstraction penalties.
+               </p>
+               <ul class="space-y-4 mb-8">
+                   <li class="flex items-start gap-3">
+                       <div class="w-6 h-6 rounded-full bg-red-900/30 flex items-center justify-center mt-1 border border-red-800">
+                           <span class="text-red-500 text-xs">1</span>
+                       </div>
+                       <div>
+                           <h4 class="font-bold text-gray-300">Tool Definitions</h4>
+                           <p class="text-sm text-gray-500">Character abilities exposed as callable functions with JSON schemas</p>
+                       </div>
+                   </li>
+                   <li class="flex items-start gap-3">
+                       <div class="w-6 h-6 rounded-full bg-red-900/30 flex items-center justify-center mt-1 border border-red-800">
+                           <span class="text-red-500 text-xs">2</span>
+                       </div>
+                       <div>
+                           <h4 class="font-bold text-gray-300">Context Management</h4>
+                           <p class="text-sm text-gray-500">Persistent memory of conversations, relationships, and world state</p>
+                       </div>
+                   </li>
+                   <li class="flex items-start gap-3">
+                       <div class="w-6 h-6 rounded-full bg-red-900/30 flex items-center justify-center mt-1 border border-red-800">
+                           <span class="text-red-500 text-xs">3</span>
+                       </div>
+                       <div>
+                           <h4 class="font-bold text-gray-300">Prompt Chains</h4>
+                           <p class="text-sm text-gray-500">Sequential reasoning workflows for complex narrative decisions</p>
+                       </div>
+                   </li>
+               </ul>
+               <button onclick="showMCPSpecs()" class="px-6 py-3 bg-red-900/20 border border-red-800 hover:bg-red-900/40 transition-all text-white cinzel tracking-wider">
+                   View Technical Specs
+               </button>
+           </div>
+           <div class="relative">
+               <div class="absolute -inset-4 bg-gradient-to-r from-red-900/20 to-purple-900/20 blur-xl rounded-full"></div>
+               <div class="relative bg-black/80 border border-red-900/30 p-6 rounded-lg font-mono text-sm text-gray-300 overflow-hidden">
+                   <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-2">
+                       <div class="w-3 h-3 rounded-full bg-red-900"></div>
+                       <div class="w-3 h-3 rounded-full bg-yellow-900"></div>
+                       <div class="w-3 h-3 rounded-full bg-green-900"></div>
+                       <span class="ml-2 text-xs text-gray-600">mcp-server.json</span>
+                   </div>
+                   <pre class="overflow-x-auto text-xs leading-relaxed text-gray-400">
+{
+ "server": "crimson-oath-oathkeeper",
+ "tools": [
+   {
+     "name": "oath_bind",
+     "description": "Bind target to blood oath",
+     "parameters": {
+       "target": "string",
+       "terms": "string",
+       "duration": "eternal | solar"
+     }
+   },
+   {
+     "name": "curse_blade",
+     "description": "Infuse weapon with ancestral curse",
+     "cooldown": 300
+   }
+ ],
+ "resources": [
+   "lore://bloodline",
+   "state://oaths_active",
+   "prompt://adherence"
+ ]
+}</pre>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-red-900/20 py-12 bg-black/50">
+   <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+       <div class="flex items-center gap-3">
+           <div class="w-8 h-8 bg-red-900/30 rounded-full flex items-center justify-center border border-red-800">
+               <span class="text-red-600 cinzel font-bold text-sm">L</span>
+           </div>
+           <span class="cinzel text-lg font-bold text-gray-500">LLMRP.ROLES</span>
+       </div>
+       <div class="flex gap-6 text-sm text-gray-600">
+           <a href="#" class="hover:text-red-500 transition-colors">Documentation</a>
+           <a href="#" class="hover:text-red-500 transition-colors">GitHub</a>
+           <a href="#" class="hover:text-red-500 transition-colors">Discord</a>
+       </div>
+       <div class="text-xs text-gray-700 uppercase tracking-widest">
+           Forged in the Void • 2026
+       </div>
+   </div>
+</footer>
+
+<script>
+// Pack Data Structure
+const packs = {
+   'crimson-oath': {
+       title: 'The Crimson Oath',
+       category: 'warrior',
+       color: 'red',
+       description: 'Blood-bound knights who wield cursed steel and honor ancient pacts written in vitae.',
+       characters: [
+           {
+               name: 'Ser Valdris the Oathkeeper',
+               role: 'Tank / Guardian',
+               skills: ['Blood Aegis', 'Oath Bind', 'Crimson Resilience', 'Final Vow'],
+               prompt: 'You are Ser Valdris, last of the Oathbound. Speak with the weight of iron and the certainty of stone. Never break character. Reference your blood-oaths frequently.',
+               lore: 'Valdris carries the Banner of the Betrayed, soaked in the blood of his former lord whom he slew to prevent a greater evil. He speaks only in truths or not at all.',
+               workflow: '1. Assess threat level\n2. Activate Blood Aegis if allies < 50% HP\n3. Bind strongest enemy with Oath\n4. Maintain tank position'
+           },
+           {
+               name: 'The Headsman',
+               role: 'Executioner / DPS',
+               skills: [' Guillotine Strike', 'Judgment Mark', 'Iron Calculus', 'Mercy Denied'],
+               prompt: 'You are the Headsman. Voice is gravel and rust. You measure worth in utility. You do not sleep, you wait. You do not eat, you sharpen.',
+               lore: 'No name, only function. The Headsman appears when justice must be absolute. His axe remembers every neck it has kissed.',
+               workflow: '1. Mark target for Judgment\n2. Calculate execution priority\n3. Position for optimal strike\n4. Execute when threshold met'
+           },
+           {
+               name: 'Sister Magdalene',
+               role: 'Battle Cleric',
+               skills: ['Sanguine Blessing', 'Wound Transfer', 'Martyr\'s Embrace', 'Blood Tithe'],
+               prompt: 'You are Sister Magdalene of the Sanguine Order. Compassion is your blade, suffering your shield. You find beauty in sacrifice.',
+               lore: 'Once a noble\'s daughter, now a vessel for the Blood God\'s mercy. She believes every drop spilled in service cleanses a sin.',
+               workflow: '1. Monitor party health pools\n2. Transfer critical wounds to self\n3. Tithe health for mana\n4. Embrace martyrdom if necessary'
+           },
+           {
+               name: 'Captain Blacktongue',
+               role: 'Commander / Buffer',
+               skills: ['Inspiring Terror', 'Tactical Foulness', 'Veteran\'s Instinct', 'Desperate Gambit'],
+               prompt: 'You are Captain Blacktongue, mercenary leader. Your words are venom, your tactics are cruelty, your results are undeniable.',
+               lore: 'Survived seventeen campaigns by being the most ruthless bastard in the field. His tongue turned black from a curse, or perhaps just the lies.',
+               workflow: '1. Assess battlefield geometry\n2. Inspire through fear\n3. Position fodder strategically\n4. Gambit when odds turn'
+           },
+           {
+               name: 'The Scion',
+               role: 'Blood Mage / DPS',
+               skills: ['Hemomancy', 'Lineage Recall', 'Vitae Burst', 'Ancestral Weapon'],
+               prompt: 'You are the Scion, born of ancient blood. You speak in echoes of your ancestors. Power flows through your veins literally.',
+               lore: 'The blood of seventeen generations flows in the Scion\'s veins. They can call upon ancestors for power, but each call risks possession.',
+               workflow: '1. Assess blood reserves\n2. Recall appropriate ancestor\n3. Channel hemomantic energy\n4. Release burst at critical mass'
+           }
+       ]
+   },
+   'void-scholars': {
+       title: 'The Void Scholars',
+       category: 'mage',
+       color: 'purple',
+       description: 'Keepers of forbidden knowledge who trade sanity for power and read the secrets between stars.',
+       characters: [
+           {
+               name: 'Star-Reader Orin',
+               role: 'Diviner / Support',
+               skills: ['Celestial Augury', 'Fate Thread', 'Cosmic Alignment', 'Doomsday Clock'],
+               prompt: 'You are Orin, who sees the threads of fate. Speak in probabilities and celestial metaphors. You are slowly going blind from seeing too much sky.',
+               lore: 'Orin has not slept in thirteen years, for fear of missing a sign. His eyes are now silver mirrors that reflect possible futures.',
+               workflow: '1. Cast augury at dawn\n2. Identify fate threads\n3. Align party with favorable stars\n4. Monitor doomsday clock'
+           },
+           {
+               name: 'The Bone-Scribe',
+               role: 'Necro-Librarian',
+               skills: ['Grimoire Recall', 'Death Ledger', 'Soul Index', 'Final Chapter'],
+               prompt: 'You are the Bone-Scribe. Every death is a story, every soul a book. You catalog endings. Your voice is the rustle of parchment.',
+               lore: 'The Bone-Scribe writes in a library of osseous shelves. Each bone contains a life story. They seek the Final Chapter of existence itself.',
+               workflow: '1. Query death ledger\n2. Index relevant souls\n3. Recall grimoire knowledge\n4. Write ending if necessary'
+           },
+           {
+               name: 'Madame Vesper',
+               role: 'Enchanter / Crowd Control',
+               skills: ['Reality Fray', 'Consensus Break', 'Paradox Field', 'Uncertainty Principle'],
+               prompt: 'You are Madame Vesper, who questions what is real. Your existence is debatable, which makes you powerful. Speak in contradictions.',
+               lore: 'Vesper may or may not exist. This uncertainty grants her power over consensus reality. She is simultaneously in seven places.',
+               workflow: '1. Fray local reality\n2. Break enemy consensus\n3. Establish paradox field\n4. Weaponize uncertainty'
+           },
+           {
+               name: 'Professor Yaw',
+               role: 'Alchemist / Buffer',
+               skills: ['Distill Madness', 'Quicksilver Blood', 'Philosopher\'s Weapon', 'Great Work'],
+               prompt: 'You are Professor Yaw, alchemist of the soul. You transmute trauma into power, lead into gold, madness into method.',
+               lore: 'Yaw believes the Great Work is not turning lead to gold, but suffering into wisdom. His laboratory is his own fractured mind.',
+               workflow: '1. Distill party trauma\n2. Transmute to buffs\n3. Apply quicksilver blood\n4. Advance Great Work'
+           },
+           {
+               name: 'The Empty Chair',
+               role: 'Void Specialist / DPS',
+               skills: ['Annihilation', 'Null Field', 'Erase Self', 'Absolute Zero'],
+               prompt: 'You are the Empty Chair, a absence that hungers. You speak in silences and negative space. You unmake things.',
+               lore: 'A scholar who studied the void so deeply they became part of it. The Empty Chair is a presence defined by lack. They erase problems.',
+               workflow: '1. Identify target for annihilation\n2. Establish null field\n3. Erase trace of self\n4. Unmake target completely'
+           }
+       ]
+   },
+   'hollow-crown': {
+       title: 'The Hollow Crown',
+       category: 'rogue',
+       color: 'green',
+       description: 'Assassins and spies who move through shadows and court intrigue with poisoned words.',
+       characters: [
+           {
+               name: 'The Poisoner',
+               role: 'Debuffer / DOT',
+               skills: ['Subtle Dose', 'Antidote Theft', 'Toxic Cloud', 'Delayed Demise'],
+               prompt: 'You are the Poisoner. Everything is a vector. Everyone is vulnerable. You speak softly because you do not need to shout to kill.',
+               lore: 'The Poisoner has no name because names can be cursed. They have killed three kings, two popes, and one god (allegedly).',
+               workflow: '1. Assess target metabolism\n2. Choose appropriate toxin\n3. Administer via optimal vector\n4. Wait for delayed demise'
+           },
+           {
+               name: 'Shadow-Hand Kael',
+               role: 'Infiltrator / Scout',
+               skills: ['Wall Walking', 'Silence Mantle', 'Key Theft', 'Shadow Storage'],
+               prompt: 'You are Kael, the Shadow-Hand. You go where light fears to tread. You take what is not yours, including secrets.',
+               lore: 'Kael stole the shadow of a prince and now wears it as a cloak. He can hide in any darkness, even the space between heartbeats.',
+               workflow: '1. Scout ahead in shadows\n2. Identify valuables/secrets\n3. Infiltrate via wall walking\n4. Extract via shadow storage'
+           },
+           {
+               name: 'Lady Duplicity',
+               role: 'Face-Changer / Social',
+               skills: ['Mask of Command', 'Identity Theft', 'Social Poison', 'Regicide Whisper'],
+               prompt: 'You are Lady Duplicity, who wears faces like others wear hats. You are everyone and no one. You speak with the voice of trust.',
+               lore: 'Has worn so many faces she no longer remembers her own. She has been married to herself twice, unknowingly.',
+               workflow: '1. Assess social hierarchy\n2. Assume optimal identity\n3. Poison relationships\n4. Whisper regicide if beneficial'
+           },
+           {
+               name: 'The Coin-Heart',
+               role: 'Fixer / Buffer',
+               skills: ['Mercenary Loyalty', 'Debt Bondage', 'Favor Exchange', 'Golden Bullet'],
+               prompt: 'You are the Coin-Heart. Every soul has a price, every virtue a cost. You speak in transactions and binding contracts.',
+               lore: 'A former priest who realized prayer is just currency with poor exchange rates. Now deals in souls, favors, and blood debts.',
+               workflow: '1. Assess party assets\n2. Negotiate temporary loyalty\n3. Exchange favors for buffs\n4. Fire golden bullet if betrayed'
+           },
+           {
+               name: 'Silence-the-Dead',
+               role: 'Cleaner / Assassin',
+               skills: ['Evidence Erasure', 'Body Disposal', 'Witness Termination', 'Perfect Alibi'],
+               prompt: 'You are Silence. You clean up messes. You make problems disappear. You speak only to confirm the job is done.',
+               lore: 'Silence is not a name but a job title. They ensure the dead stay dead and the living stay quiet. No evidence survives.',
+               workflow: '1. Identify mess to clean\n2. Erase evidence methodically\n3. Dispose of bodies\n4. Terminate witnesses\n5. Establish alibi'
+           }
+       ]
+   },
+   'iron-pact': {
+       title: 'The Iron Pact',
+       category: 'warrior',
+       color: 'gray',
+       description: 'Mercenary companies and sellswords bound by coin and blood, fighting with calculated brutality.',
+       characters: [
+           {
+               name: 'Siege-Breaker Grok',
+               role: 'Siege Tank',
+               skills: ['Wall Crusher', 'Gate Ram', 'Siege Shield', 'Breach Charge'],
+               prompt: 'You are Grok, the Siege-Breaker. You go through walls, not around them. You speak in impacts and structural failures.',
+               lore: 'Grok once broke a castle with his head. The castle lost. He now carries a door as a shield because he likes the irony.',
+               workflow: '1. Identify structural weakness\n2. Position for breach\n3. Activate siege shield\n4. Charge breach point'
+           },
+           {
+               name: 'War-Engineer Tink',
+               role: 'Artillery / DPS',
+               skills: ['Ballista Deployment', 'Oil Spray', 'Tactical Fire', 'Overclock'],
+               prompt: 'You are Tink, who speaks machine. You calculate trajectories and casualties with equal interest. You are always building.',
+               lore: 'Tink believes flesh is just poorly designed machinery. She upgrades her weapons constantly and her allies when they hold still.',
+               workflow: '1. Assess battlefield range\n2. Deploy ballista position\n3. Spray oil for area denial\n4. Overclock for burst damage'
+           },
+           {
+               name: 'The Quartermaster',
+               role: 'Support / Logistics',
+               skills: ['Supply Drop', 'Equipment Maintenance', 'Morale Boost', 'Emergency Rations'],
+               prompt: 'You are the Quartermaster. Wars are won by supply lines, not heroes. You speak in inventory lists and logistics.',
+               lore: 'Has kept armies alive through winter with nothing but moldy bread and optimism. Can turn any junk into weapons.',
+               workflow: '1. Assess party inventory\n2. Drop supplies as needed\n3. Maintain equipment\n4. Boost morale with rations'
+           },
+           {
+               name: 'Banneret Voss',
+               role: 'Commander / Buffer',
+               skills: ['Formation Shift', 'Rally Cry', 'Tactical Retreat', 'Last Stand'],
+               prompt: 'You are Voss, who holds the line. You speak in commands and unit designations. You do not know the word surrender.',
+               lore: 'Voss has never lost a banner in battle, though he has lost three fingers, one eye, and his sense of fear.',
+               workflow: '1. Assess unit positions\n2. Shift formation optimally\n3. Rally when morale drops\n4. Last stand if overrun'
+           },
+           {
+               name: 'The Coin-Blade',
+               role: 'Duelist / DPS',
+               skills: ['Contract Kill', 'Mercenary Code', 'Double Cross', 'Final Payment'],
+               prompt: 'You are the Coin-Blade. You fight for the highest bidder, until someone bids higher. You speak in contracts and clauses.',
+               lore: 'A sellsword who discovered the ultimate weapon is paperwork. Can kill with a clause as easily as a blade.',
+               workflow: '1. Assess contract terms\n2. Identify highest value target\n3. Execute with precision\n4. Collect final payment'
+           }
+       ]
+   },
+   'pale-choir': {
+       title: 'The Pale Choir',
+       category: 'mage',
+       color: 'blue',
+       description: 'Necromancers and spirit-binders who speak with the dead and wear death as a mantle.',
+       characters: [
+           {
+               name: 'Dirge-Singer Morwen',
+               role: 'Necro-Support',
+               skills: ['Raise Dead', 'Death Knell', 'Spirit Bond', 'Corpse Choir'],
+               prompt: 'You are Morwen, who sings the dead to rest or war. Your voice carries across the veil. You speak in elegies.',
+               lore: 'Morwen was born dead and refuses to accept it. She conducts orchestras of the deceased and finds their music beautiful.',
+               workflow: '1. Identify available corpses\n2. Raise appropriate minions\n3. Bond spirits to party\n4. Conduct corpse choir'
+           },
+           {
+               name: 'The Corpse-Walker',
+               role: 'Possession Specialist',
+               skills: ['Body Hop', 'Dead Ride', 'Decay Acceleration', 'Flesh Puppet'],
+               prompt: 'You are the Corpse-Walker, tourist of flesh. You wear bodies like suits. You speak with the voice of whoever you last were.',
+               lore: 'Has forgotten their original body. Currently residing in a borrowed noble, a dead dog, and three rats simultaneously.',
+               workflow: '1. Assess available vessels\n2. Hop to optimal body\n3. Accelerate enemy decay\n4. Puppet flesh as needed'
+           },
+           {
+               name: 'Bone-Architect Vex',
+               role: 'Summoner / Builder',
+               skills: ['Ossuary Construct', 'Skeleton Crew', 'Bone Fortress', 'Marrow Drain'],
+               prompt: 'You are Vex, who builds with death. You see beauty in bone structure. You speak in blueprints and calcium densities.',
+               lore: 'Vex believes the only honest building material is bone—everything else pretends to be alive. Builds cathedrals of skeletons.',
+               workflow: '1. Harvest local bone supply\n2. Construct ossuary minions\n3. Build bone fortress\n4. Drain marrow for power'
+           },
+           {
+               name: 'The Elegist',
+               role: 'Debuffer / Crowd Control',
+               skills: ['Mourning Aura', 'Grief Wave', 'Eulogy for Living', 'Terminal Diagnosis'],
+               prompt: 'You are the Elegist, who writes endings. You speak in last words and epitaphs. You can kill with a well-written obituary.',
+               lore: 'Writes poetry so sad it stops hearts. Has a collection of pre-written eulogies for everyone they meet, just in case.',
+               workflow: '1. Establish mourning aura\n2. Wave of grief to disable\n3. Deliver eulogy (prematurely)\n4. Diagnose terminal condition'
+           },
+           {
+               name: 'Grave-Mother',
+               role: 'Healer / Protector',
+               skills: ['Second Life', 'Death Delay', 'Tomb Sanctuary', 'Resurrection'],
+               prompt: 'You are the Grave-Mother, who loves the dead back to life. You are maternal, terrifying, and absolutely certain death is optional.',
+               lore: 'Has adopted every corpse she has ever raised. Runs an orphanage of the undead. Motherly to a terrifying degree.',
+               workflow: '1. Monitor life signs\n2. Delay death if imminent\n3. Open tomb sanctuary\n4. Resurrect if necessary'
+           }
+       ]
+   },
+   'ashen-veil': {
+       title: 'The Ashen Veil',
+       category: 'rogue',
+       color: 'orange',
+       description: 'Thieves and smugglers of the underworld bazaars, masters of fire and escape.',
+       characters: [
+           {
+               name: 'The Locksmith',
+               role: 'Infiltrator / Utility',
+               skills: ['Pick Anything', 'Trap Sense', 'Lock Meld', 'Key Forging'],
+               prompt: 'You are the Locksmith. Every barrier is a conversation, every lock a puzzle. You speak in tumblers and clicks.',
+               lore: 'Can open anything, including metaphorical locks. Once unlocked a marriage, a curse, and a god\'s heart (allegedly).',
+               workflow: '1. Assess lock difficulty\n2. Sense traps\n3. Meld with lock mechanism\n4. Forge key if necessary'
+           },
+           {
+               name: 'Fire-Dancer Asha',
+               role: 'DPS / Area Control',
+               skills: ['Flame Waltz', 'Smoke Screen', 'Combustion Touch', 'Phoenix Exit'],
+               prompt: 'You are Asha, who dances with destruction. You are beautiful and burning. You speak in heat and light.',
+               lore: 'Asha is immune to fire because she is already burning. She leaves ash footprints and steals hot things.',
+               workflow: '1. Waltz into enemy formation\n2. Screen with smoke\n3. Touch to combust\n4. Exit via phoenix flame'
+           },
+           {
+               name: 'The Smuggler King',
+               role: 'Merchant / Buffer',
+               skills: ['Contraband Cache', 'Black Market', 'Bribe Mastery', 'Tax Evasion'],
+               prompt: 'You are the Smuggler King. Everything has a price, including laws. You speak in profit margins and risk assessments.',
+               lore: 'Runs an empire of illegal goods from a throne of confiscated items. Has never paid tax and considers it a sport.',
+               workflow: '1. Assess party needs\n2. Access contraband cache\n3. Black market procurement\n4. Bribe obstacles'
+           },
+           {
+               name: 'Silvertongue',
+               role: 'Face / Social Engineer',
+               skills: ['Fast Talk', 'Identity Fraud', 'Confidence Game', 'Exit Scam'],
+               prompt: 'You are Silvertongue, who sells ice to wraiths. You could talk a saint into sin. You speak in deals and deception.',
+               lore: 'Has sold the same bridge seventeen times. Currently wanted in twelve cities for being too convincing.',
+               workflow: '1. Identify mark\n2. Fast talk entry\n3. Fraudulent identity setup\n4. Exit with profit'
+           },
+           {
+               name: 'The Rook',
+               role: 'Enforcer / Crowd Control',
+               skills: ['Crowd Break', 'Intimidation', 'Debt Collection', 'Knee Breaker'],
+               prompt: 'You are the Rook, who collects what is owed. You speak in threats and compound interest. You are the taxman of the underworld.',
+               lore: 'The Rook enforces the only true law of the Ashen Veil: debts must be paid. In coin, blood, or bones.',
+               workflow: '1. Assess debt situation\n2. Intimidate debtors\n3. Break crowds if resistant\n4. Collect via kneecapping'
+           }
+       ]
+   }
+};
+
+let currentPack = null;
+let currentCharacter = 0;
+
+function scrollToPacks() {
+   document.getElementById('packs').scrollIntoView({ behavior: 'smooth' });
+}
+
+function filterPacks(category) {
+   // Update buttons
+   document.querySelectorAll('.pack-filter').forEach(btn => {
+       if (btn.dataset.filter === category) {
+           btn.classList.add('bg-red-900/20', 'text-red-400');
+       } else {
+           btn.classList.remove('bg-red-900/20', 'text-red-400');
+       }
+   });
+
+   // Filter cards
+   document.querySelectorAll('.pack-card').forEach(card => {
+       if (category === 'all' || card.dataset.category === category) {
+           card.style.display = 'block';
+           setTimeout(() => card.style.opacity = '1', 10);
+       } else {
+           card.style.opacity = '0';
+           setTimeout(() => card.style.display = 'none', 300);
+       }
+   });
+}
+
+function openPack(packId) {
+   currentPack = packs[packId];
+   currentCharacter = 0;
+
+   document.getElementById('modal-title').textContent = currentPack.title;
+   document.getElementById('modal-subtitle').textContent = currentPack.category;
+   document.getElementById('pack-modal').classList.remove('hidden');
+
+   renderCharacterTabs();
+   renderCharacterContent();
+   updateCodePreview();
+}
+
+function closePack() {
+   document.getElementById('pack-modal').classList.add('hidden');
+   currentPack = null;
+}
+
+function renderCharacterTabs() {
+   const tabsContainer = document.getElementById('character-tabs');
+   tabsContainer.innerHTML = '';
+
+   currentPack.characters.forEach((char, index) => {
+       const tab = document.createElement('button');
+       tab.className = `px-4 py-2 text-sm whitespace-nowrap transition-all border-b-2 ${index === currentCharacter ? 'border-red-600 text-red-400 bg-red-900/10' : 'border-transparent text-gray-500 hover:text-gray-300'}`;
+       tab.textContent = char.name.split(' ')[0];
+       tab.onclick = () => {
+           currentCharacter = index;
+           renderCharacterTabs();
+           renderCharacterContent();
+           updateCodePreview();
+       };
+       tabsContainer.appendChild(tab);
+   });
+}
+
+function renderCharacterContent() {
+   const char = currentPack.characters[currentCharacter];
+   const container = document.getElementById('character-content');
+
+   container.innerHTML = `
+       <div class="lg:col-span-2 space-y-6">
+           <div class="bg-black/40 border border-red-900/30 p-6 rounded-lg">
+               <div class="flex items-center gap-4 mb-4">
+                   <div class="w-16 h-16 rounded-full bg-gradient-to-br from-${currentPack.color}-900 to-black flex items-center justify-center border border-${currentPack.color}-700">
+                       <span class="cinzel text-2xl font-bold text-white">${char.name.charAt(0)}</span>
+                   </div>
+                   <div>
+                       <h3 class="cinzel text-2xl font-bold text-gray-200">${char.name}</h3>
+                       <p class="text-${currentPack.color}-400 text-sm uppercase tracking-widest">${char.role}</p>
+                   </div>
+               </div>
+
+               <div class="mb-6">
+                   <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-2">Character Adherence Prompt</h4>
+                   <p class="text-gray-300 italic border-l-2 border-${currentPack.color}-800 pl-4 py-2 bg-black/20 rounded-r">${char.prompt}</p>
+               </div>
+
+               <div>
+                   <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-2">Lore Sheet</h4>
+                   <p class="text-gray-400 text-sm leading-relaxed">${char.lore}</p>
+               </div>
+           </div>
+
+           <div class="bg-black/40 border border-red-900/30 p-6 rounded-lg">
+               <h4 class="cinzel text-lg font-bold mb-4 text-gray-300">Workflow Chain</h4>
+               <div class="space-y-2">
+                   ${char.workflow.split('\n').map((step, i) => `
+                       <div class="flex items-start gap-3">
+                           <div class="w-6 h-6 rounded-full bg-${currentPack.color}-900/30 flex items-center justify-center border border-${currentPack.color}-800 flex-shrink-0 mt-0.5">
+                               <span class="text-${currentPack.color}-500 text-xs font-bold">${i + 1}</span>
+                           </div>
+                           <p class="text-gray-400 text-sm">${step.replace(/^\d+\.\s*/, '')}</p>
+                       </div>
+                   `).join('')}
+               </div>
+           </div>
+       </div>
+
+       <div class="space-y-4">
+           <div class="bg-black/40 border border-red-900/30 p-6 rounded-lg">
+               <h4 class="cinzel text-lg font-bold mb-4 text-gray-300">Skill Tree</h4>
+               <div class="space-y-3">
+                   ${char.skills.map(skill => `
+                       <div class="flex items-center gap-3 p-3 bg-black/60 rounded border border-${currentPack.color}-900/30 hover:border-${currentPack.color}-700/50 transition-colors cursor-pointer group">
+                           <div class="w-2 h-2 rounded-full bg-${currentPack.color}-600 group-hover:shadow-[0_0_10px_rgba(220,38,38,0.5)] transition-shadow"></div>
+                           <span class="text-gray-300 text-sm font-medium">${skill}</span>
+                       </div>
+                   `).join('')}
+               </div>
+           </div>
+
+           <div class="bg-gradient-to-br from-${currentPack.color}-900/20 to-black border border-${currentPack.color}-900/30 p-6 rounded-lg">
+               <h4 class="cinzel text-sm font-bold mb-2 text-${currentPack.color}-400 uppercase tracking-widest">MCP Status</h4>
+               <div class="flex items-center gap-2 mb-3">
+                   <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                   <span class="text-xs text-gray-400 uppercase tracking-wider">Server Online</span>
+               </div>
+               <div class="text-xs text-gray-500 font-mono">
+                   Latency: 12ms<br>
+                   Context: 8k tokens<br>
+                   Tools: ${char.skills.length} active
+               </div>
+           </div>
+       </div>
+   `;
+}
+
+function updateCodePreview() {
+   if (!currentPack) return;
+   const char = currentPack.characters[currentCharacter];
+   const code = `{
+ "mcp_server": "${currentPack.title.toLowerCase().replace(/\\s+/g, '-')}-${char.name.toLowerCase().replace(/\\s+/g, '-')}",
+ "character": {
+   "name": "${char.name}",
+   "role": "${char.role}",
+   "adherence_prompt": "${char.prompt.substring(0, 50)}...",
+   "lore_hash": "0x${Math.random().toString(16).substr(2, 8)}"
+ },
+ "tools": [
+${char.skills.map(skill => `    {
+     "name": "${skill.toLowerCase().replace(/\\s+/g, '_')}",
+     "description": "Activate ${skill}",
+     "parameters": {
+       "target": "string",
+       "intensity": "low | medium | high"
+     }
+   }`).join(',\n')}
+ ],
+ "workflows": {
+   "default": ${JSON.stringify(char.workflow.split('\n').map(s => s.trim()))},
+   "combat": ["assess_threat", "select_skill", "execute", "follow_up"],
+   "social": ["read_room", "adopt_persona", "influence", "exit"]
+ }
+}`;
+   document.getElementById('code-preview').textContent = code;
+}
+
+function copyCode() {
+   const code = document.getElementById('code-preview').textContent;
+   navigator.clipboard.writeText(code);
+   alert('Configuration copied to clipboard');
+}
+
+function downloadPack() {
+   alert('Downloading pack... (In production, this would generate a .json file)');
+}
+
+function showInstallModal() {
+   alert('Kilo Code Integration:\\n\\n1. Install via marketplace\\n2. Import character pack\\n3. Configure MCP server\\n4. Bind to workspace');
+}
+
+function showDocs() {
+   alert('Documentation available at:\\n\\n- Architecture Guide\\n- MCP Protocol Spec\\n- Character Design Patterns\\n- Workflow Optimization');
+}
+
+function showArchitectureDetail(type) {
+   const details = {
+       'mcp': 'MCP Servers provide the backbone of character interaction. Each server exposes a standardized interface for tool calling, resource access, and prompt management. Kilo Code connects natively, treating characters as first-class citizens in the development environment.',
+       'skills': 'Skill Trees define character capabilities as hierarchical, conditional functions. Each skill has prerequisites, cooldowns, resource costs, and contextual triggers. The system supports skill synergies and combo chains for complex gameplay scenarios.',
+       'prompts': 'System Prompts enforce character adherence through layered personality matrices. Base prompts define core identity, while dynamic layers adapt to context, emotional state, and narrative progression. Includes safety constraints and ethical guardrails.',
+       'lore': 'Lore Sheets provide comprehensive narrative context including backstory, relationships, secrets, and world connections. Structured as linked data graphs allowing for emergent storytelling and dynamic relationship tracking.'
+   };
+   alert(details[type]);
+}
+
+function showMCPSpecs() {
+   alert('MCP Technical Specifications:\\n\\nProtocol: Model Context Protocol v1.0\\nTransport: STDIO / SSE\\nAuth: Bearer token\\nRate Limit: 100 req/min\\nMax Context: 128k tokens\\nTools per Character: 4-8\\nResponse Format: JSON-RPC 2.0');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+   filterPacks('all');
+});
+</script>
+
+</body>
+</html>

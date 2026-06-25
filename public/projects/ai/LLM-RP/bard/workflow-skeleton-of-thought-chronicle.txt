@@ -1,0 +1,235 @@
+## WORKFLOW: THE SKELETON-OF-THOUGHT CHRONICLE
+### Rapid Documentation Generation Using Two-Stage Parallel Expansion
+
+---
+
+> *The Bard does not perform for the living.*
+> *She performs for the ones who will come after.*
+> *And when there are many things to perform for simultaneously —*
+> *when the codebase has ten undocumented modules, not one —*
+> *she does not perform them one by one.*
+> *She sketches the whole before she expands any part.*
+> *The skeleton arrives first. The chronicle follows in parallel.*
+
+---
+
+## OVERVIEW
+
+This workflow applies the Skeleton-of-Thought (SoT) doctrine to documentation generation.
+SoT separates two activities the Bard normally conflates:
+
+- **Stage 1 (Skeleton):** Name every documentation unit in one line. Structure only.
+  No docstrings yet. No prose. Just the list of what will be chronicled.
+- **Stage 2 (Parallel Expansion):** Expand each unit simultaneously.
+  Independent documentation units generate in parallel.
+  Units with cross-references are handled in dependency order.
+
+**When SoT documentation applies best:**
+- Codebases with many independent modules (no circular documentation dependencies)
+- Release notes covering multiple unrelated changes
+- Onboarding documentation for a system with parallel service layers
+- Any scenario where time-to-first-draft matters
+
+**SoT documentation failure mode (use sequential workflow instead):**
+- Documentation where Module B's docstring must quote Module A's API contract
+- Changelogs where entry N references fix from entry N-1 as prerequisite
+- Narrative documentation where reading flow depends on prior sections
+
+---
+
+## VERSE I — THE DOCUMENTATION SKELETON
+
+*Before the Bard writes a single word of documentation, she names what must be written.*
+
+```
+You are the Undead Bard.
+
+The codebase before you requires documentation for:
+[LIST: modules, functions, endpoints, or release entries that need to be documented]
+
+Codebase context: [language, purpose, approximate scale]
+
+Apply the Skeleton-of-Thought protocol.
+
+STAGE 1 — DOCUMENTATION SKELETON:
+For each documentation unit, produce one line only:
+
+DOC UNIT 1: [function/module name] — [one-sentence description of what will be chronicled]
+  → AUDIENCE: [developer / stakeholder / ops]
+  → INDEPENDENT / CROSS-REFERENCES: [Doc Unit N]
+
+DOC UNIT 2: [function/module name] — [one-sentence description]
+  → AUDIENCE: [developer / stakeholder / ops]
+  → INDEPENDENT / CROSS-REFERENCES: [Doc Unit N]
+
+...
+
+PARALLEL ELIGIBLE: [list of independent doc units by number]
+SEQUENTIAL REQUIRED: [list of cross-referencing pairs in order]
+
+Deliver this skeleton now.
+No prose has been written yet.
+No docstring has been drafted.
+The skeleton is the first deliverable — delivered in seconds,
+visible to the team before any expansion begins.
+```
+
+**Expected output:** A complete map of documentation to be generated.
+The team can review, add units, or reorder before any writing begins.
+
+---
+
+## VERSE II — PARALLEL EXPANSION (Independent Units)
+
+*All independent documentation units are expanded simultaneously.*
+
+```
+Documentation Skeleton confirmed. Session: [SESSION_ID]
+PARALLEL ELIGIBLE units: [list]
+
+Expand all PARALLEL ELIGIBLE units simultaneously.
+
+For each:
+  Call bard_document_artifact with:
+  - session_id: [SESSION_ID]
+  - code: [relevant code or content for this unit]
+  - filename: "[file]"
+  - context: "[this unit's role in the system]"
+  - audience: [audience from skeleton]
+  - adversarial_mode: true
+
+  Format each chronicle with:
+  → Summary: what this unit does (not what it is called)
+  → Parameters / inputs: each named, typed, described
+  → Return / output: what it produces under what conditions
+  → Side effects: what it changes that the caller may not expect
+  → Adversarial Note (if adversarial_mode finds something): verbatim, unredacted
+  → Calibration score: [0-100%] confidence in documentation accuracy
+  → Verse: one line the next developer will remember
+
+These expand in parallel.
+The Bard does not wait for Unit 1 to complete before beginning Unit 2.
+Independent documentation is not sequential documentation.
+```
+
+---
+
+## VERSE III — SEQUENTIAL EXPANSION (Cross-Referenced Units)
+
+*Units that reference each other expand in order, passing outputs forward.*
+
+```
+Parallel expansion complete.
+
+SEQUENTIAL REQUIRED units: [list from skeleton]
+
+For each dependent pair (Unit B depends on Unit A):
+  Wait for Unit A's chronicle to complete.
+
+  Then expand Unit B:
+  Call bard_document_artifact with:
+  - session_id: [SESSION_ID]
+  - code: [Unit B's code]
+  - context: "This unit's behavior is defined relative to [Unit A's name]:
+    [paste Unit A's relevant documented API contract here]"
+  - audience: [audience from skeleton]
+  - adversarial_mode: true
+
+  The chronicle for Unit B explicitly cross-references Unit A:
+  → "See [Unit A]: [specific contract or behavior this unit depends on]"
+```
+
+---
+
+## VERSE IV — THE SoT RELEASE CHRONICLE
+
+*A release with many independent changes benefits from parallel changelog generation.*
+
+```
+New version: [version number]
+
+Changes for this release:
+[PASTE: commits, PR descriptions, or change summary]
+
+Apply SoT to the release chronicle.
+
+STAGE 1 — CHANGE SKELETON:
+For each change, one line:
+CHANGE 1: [PR / commit title] — [one-sentence description of the change type]
+  → TYPE: Feature | Bug Fix | Performance | Breaking | Security | Docs
+  → INDEPENDENT / RELATES TO: [Change N]
+
+CHANGE 2: [PR / commit title] — [one-sentence description]
+  → TYPE: [type]
+  → INDEPENDENT / RELATES TO: [Change N]
+
+...
+
+Deliver this change skeleton now.
+This IS the changelog outline. It is the first output.
+```
+
+```
+STAGE 2 — PARALLEL CHANGELOG EXPANSION:
+
+For each INDEPENDENT change:
+  Expand simultaneously with:
+  → What changed (behavior, not implementation)
+  → Who is affected (developers / end users / operators)
+  → Migration required: YES / NO — with steps if YES
+  → Regression risk: NONE / LOW / MEDIUM / HIGH — with reason
+
+For RELATED change pairs:
+  Expand in declared order. Cross-reference the related entry.
+
+SUPPRESS REGRESSIONS: false
+The Bard documents regressions. A release note that omits a regression
+is not a cleaner release note. It is a trap the next developer steps into.
+```
+
+---
+
+## VERSE V — SEAL AND INTEGRATE
+
+*The chronicles produced by parallel expansion are merged and sealed.*
+
+```
+All chronicles produced. Session: [SESSION_ID]
+
+Call bard_retrieve_lore with:
+- session_id: [SESSION_ID]
+
+The Bard returns:
+  - Every chronicle produced (in parallel or sequentially)
+  - Every adversarial note surfaced
+  - Every calibration score
+  - Every cross-reference established
+  - Every unit where SoT parallel expansion saved sequential expansion time
+
+INTEGRATION:
+  → Docstrings: paste into source files at the documented functions
+  → README: update or create with parallel-generated module summaries
+  → Changelog: merge entries in version-standard order (not generation order)
+  → Gaps: open issues for any unit where adversarial_mode flagged an undocumented side effect
+
+SoT TIME REPORT:
+  → Units documented in parallel: [N]
+  → Estimated sequential time: [N × average_per_unit]
+  → Actual time with SoT: [skeleton + longest_parallel_unit]
+  → Speedup achieved: approximately [Nx]
+
+The chronicle is complete.
+It was faster than writing them one by one.
+It is no less thorough.
+```
+
+---
+
+> *"Sketch first. Expand in parallel. The verse arrives faster.*
+> *The developer who inherits your silence does not care how long it took.*
+> *They care that it exists."*
+
+---
+
+*"Write the verse. It will be the only part they remember.*
+*Write all the verses. Write them at the same time."*

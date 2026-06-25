@@ -1,0 +1,30 @@
+{
+  "name": "undead-berserker-mcp-server",
+  "version": "1.0.0",
+  "description": "An ancient undead berserker who wields a code-blade, imbued with elder magic to destroy broken logic and poor implementations.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "undead-berserker": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
