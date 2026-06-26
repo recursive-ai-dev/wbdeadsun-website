@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+import FilePreview from './components/FilePreview';
 import ProjectExplorer from './components/ProjectExplorer';
 import profileImg from './assets/profile(1)(1).png';
 import heroBg from './assets/hero-bg.jpg';
-import { projects, projectsByCategory, categoryInfo, type Project, type ProjectCategory } from './projects';
+import { projectsByCategory, categoryInfo, type Project, type ProjectCategory } from './projects';
 
 interface MusicTrack {
   title: string;
@@ -54,13 +55,19 @@ const GothicDivider = () => (
 );
 
 const Navigation = ({ activeSection, onNavigate }: { activeSection: string; onNavigate: (section: string) => void }) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const sections = ['home', 'about', 'archives', ...Object.keys(projectsByCategory)] as const;
+
+  const handleNavigate = (section: string) => {
+    setMobileOpen(false);
+    onNavigate(section);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-zinc-700/50">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between h-16">
-          <button onClick={() => onNavigate('home')} className="font-bold tracking-widest text-zinc-100 text-lg cursor-pointer uppercase">
+          <button onClick={() => handleNavigate('home')} className="font-bold tracking-widest text-zinc-100 text-lg cursor-pointer uppercase">
             damien
           </button>
 
@@ -68,7 +75,7 @@ const Navigation = ({ activeSection, onNavigate }: { activeSection: string; onNa
             {sections.map((section) => (
               <button
                 key={section}
-                onClick={() => onNavigate(section)}
+                onClick={() => handleNavigate(section)}
                 className={`px-4 py-2 text-[10px] tracking-widest uppercase transition-colors cursor-pointer
                            ${activeSection === section
                              ? 'text-zinc-100 border-b border-zinc-500'
@@ -79,12 +86,33 @@ const Navigation = ({ activeSection, onNavigate }: { activeSection: string; onNa
             ))}
           </div>
 
-           <button className="md:hidden text-zinc-300 hover:text-zinc-100 transition-colors cursor-pointer">
+          <button
+            onClick={() => setMobileOpen(prev => !prev)}
+            className="md:hidden text-zinc-300 hover:text-zinc-100 transition-colors cursor-pointer"
+            aria-label="Toggle navigation"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
+
+        {mobileOpen && (
+          <div className="md:hidden border-t border-zinc-800/50 pb-3">
+            {sections.map((section) => (
+              <button
+                key={section}
+                onClick={() => handleNavigate(section)}
+                className={`block w-full text-left px-2 py-3 text-[10px] tracking-widest uppercase transition-colors cursor-pointer
+                           ${activeSection === section
+                             ? 'text-zinc-100'
+                             : 'text-zinc-500 hover:text-zinc-300'}`}
+              >
+                {section === 'about' ? 'About' : section === 'archives' ? 'Archives' : categoryInfo[section as ProjectCategory]?.label || section}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
@@ -147,6 +175,8 @@ const About = () => {
   const totalGames = projectsByCategory['games']?.length || 0;
   const totalAI = projectsByCategory['ai']?.length || 0;
   const totalPrograms = projectsByCategory['programs']?.length || 0;
+  const totalCharacters = projectsByCategory['characters']?.length || 0;
+  const totalMCP = projectsByCategory['mcp']?.length || 0;
   const totalTracks = (projectsByCategory['music'] || []).reduce((acc, p) => acc + (p.tracks?.length || 0), 0);
 
   return (
@@ -157,7 +187,7 @@ const About = () => {
         <p className="text-zinc-300 text-lg leading-relaxed mb-8">
           I enjoy vibe coding, have been writing lyrics for 20 years, and can never seem to finish a project.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <div className="p-4 border border-zinc-800/50 bg-zinc-900/20">
             <span className="block text-2xl font-bold text-zinc-100 mb-1">{totalTracks}</span>
             <span className="text-[10px] uppercase tracking-widest text-zinc-500">Audio Records</span>
@@ -173,6 +203,14 @@ const About = () => {
           <div className="p-4 border border-zinc-800/50 bg-zinc-900/20">
             <span className="block text-2xl font-bold text-zinc-100 mb-1">{totalGames}</span>
             <span className="text-[10px] uppercase tracking-widest text-zinc-500">Simulations</span>
+          </div>
+          <div className="p-4 border border-zinc-800/50 bg-zinc-900/20">
+            <span className="block text-2xl font-bold text-zinc-100 mb-1">{totalCharacters}</span>
+            <span className="text-[10px] uppercase tracking-widest text-zinc-500">Lore Tomes</span>
+          </div>
+          <div className="p-4 border border-zinc-800/50 bg-zinc-900/20">
+            <span className="block text-2xl font-bold text-zinc-100 mb-1">{totalMCP}</span>
+            <span className="text-[10px] uppercase tracking-widest text-zinc-500">MCP Servers</span>
           </div>
         </div>
         <GothicDivider />
@@ -248,7 +286,7 @@ const AudioPlayer = ({ tracks, projectTitle, musicState }: { tracks: { title: st
             </span>
             <div className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
               <a
-                href={track.file}
+                href={encodeURI(track.file)}
                 download
                 className="text-zinc-600 hover:text-zinc-300 transition-colors"
                 title="Download MP3"
@@ -270,6 +308,7 @@ const GlobalPlayer = ({ musicState }: { musicState: MusicState }) => {
   if (!musicState.currentTrack) return null;
 
   const formatTime = (time: number) => {
+    if (!Number.isFinite(time) || time < 0) return "0:00";
     const mins = Math.floor(time / 60);
     const secs = Math.floor(time % 60);
     return `${mins}:${secs.toString().padStart(2, "0")}`;
@@ -356,64 +395,12 @@ const GlobalPlayer = ({ musicState }: { musicState: MusicState }) => {
             />
          </div>
         <a
-          href={musicState.currentTrack.file}
+          href={encodeURI(musicState.currentTrack.file)}
           download
           className="text-[10px] tracking-widest uppercase text-zinc-500 hover:text-zinc-200 transition-colors flex items-center gap-2 border border-zinc-800 px-3 py-1.5 hover:bg-zinc-900"
         >
           MP3 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
         </a>
-      </div>
-    </div>
-  );
-};
-
-const FilePreview = ({ path, onClose }: { path: string; onClose: () => void }) => {
-  const [content, setContent] = useState<string>("");
-  const [loading, setLoading] = useState(true);
-  const isImage = /\.(png|jpe?g|gif|webp|svg)$/i.test(path);
-  const isAudio = /\.mp3$/i.test(path);
-
-  useEffect(() => {
-    if (isImage || isAudio) {
-      setLoading(false);
-      return;
-    }
-    setLoading(true);
-    fetch(`/${path}`)
-      .then(res => res.text())
-      .then(text => {
-        setContent(text);
-        setLoading(false);
-      })
-      .catch(err => {
-        setContent("Error loading file.");
-        setLoading(false);
-      });
-  }, [path]);
-
-  return (
-    <div className="flex flex-col h-full animate-in fade-in zoom-in-95 duration-300">
-      <div className="bg-zinc-900/80 px-4 py-2 border-b border-zinc-800 flex justify-between items-center">
-        <span className="text-[10px] uppercase tracking-widest text-zinc-400 font-mono truncate mr-4">{path}</span>
-        <button onClick={onClose} className="text-zinc-500 hover:text-zinc-200 transition-colors">&times; CLOSE PREVIEW</button>
-      </div>
-      <div className="flex-1 overflow-auto p-6 bg-black/20 custom-scrollbar">
-        {loading ? (
-          <div className="h-full flex items-center justify-center text-zinc-600 font-mono text-xs animate-pulse">ACCESSING ENCRYPTED DATA...</div>
-        ) : isImage ? (
-          <div className="h-full flex items-center justify-center">
-            <img src={`/${path}`} alt="" className="max-w-full max-h-full object-contain border border-zinc-800 shadow-2xl" />
-          </div>
-        ) : isAudio ? (
-          <div className="h-full flex flex-col items-center justify-center gap-6">
-            <div className="text-4xl">🎵</div>
-            <audio src={`/${path}`} controls className="w-full max-w-md accent-zinc-500" />
-          </div>
-        ) : (
-          <pre className="text-xs md:text-sm font-mono text-zinc-300 leading-relaxed whitespace-pre-wrap">
-            {content}
-          </pre>
-        )}
       </div>
     </div>
   );
@@ -433,17 +420,24 @@ const ProjectModal = ({ project, onClose, musicState }: { project: Project; onCl
   }, [onClose]);
 
   useEffect(() => {
+    const controller = new AbortController();
     if (project.type === 'lyrics' && project.files) {
       project.files.forEach(async (f) => {
         try {
-          const res = await fetch(`/projects/music/lyrics/${f}`);
+          const res = await fetch(`./projects/music/lyrics/${encodeURIComponent(f)}`, {
+            signal: controller.signal,
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const text = await res.text();
           setLyrics(prev => ({ ...prev, [f]: text }));
         } catch (e) {
+          if ((e as Error).name === 'AbortError') return;
           console.error("Failed to load lyrics", e);
+          setLyrics(prev => ({ ...prev, [f]: `[Unable to load ${f}]` }));
         }
       });
     }
+    return () => controller.abort();
   }, [project]);
 
   const hasLivePreview = project.path && (project.type === 'game' || project.path.endsWith('.html'));
@@ -535,8 +529,9 @@ const ProjectModal = ({ project, onClose, musicState }: { project: Project; onCl
               <div className="mt-12 flex gap-4 border-t border-zinc-900 pt-8">
                  {project.path && (
                    <a
-                    href={project.path}
+                    href={encodeURI(project.path)}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="px-6 py-3 border border-zinc-700 text-zinc-300 hover:border-zinc-100 hover:text-white transition-all text-[10px] tracking-widest uppercase"
                    >
                     {project.type === 'game' ? 'Execute Simulation' : project.type === 'ai' ? 'Access Entity' : 'Source View'}
@@ -557,7 +552,7 @@ const ProjectModal = ({ project, onClose, musicState }: { project: Project; onCl
                 <FilePreview path={previewFile} onClose={() => setPreviewFile(null)} />
               ) : (
                 <ProjectExplorer
-                  initialPath={`projects/${project.category}/${project.id}`}
+                  initialPath={project.path || `projects/${project.category}/${project.id}`}
                   onOpenFile={(path) => setPreviewFile(path)}
                   className="flex-1 border-none bg-transparent"
                 />
@@ -568,7 +563,7 @@ const ProjectModal = ({ project, onClose, musicState }: { project: Project; onCl
           {activeTab === 'live' && hasLivePreview && (
             <div className="h-full flex flex-col animate-in zoom-in-95 duration-500">
               <iframe
-                src={project.path}
+                src={project.path ? encodeURI(project.path) : undefined}
                 className="flex-1 w-full border border-zinc-800 bg-white"
                 title={project.title}
               />
@@ -809,7 +804,7 @@ export default function App() {
           setIsPlaying(true);
         }
       } else {
-        audioRef.current.src = track.file;
+        audioRef.current.src = encodeURI(track.file);
         audioRef.current.play();
         setCurrentTrack(track);
         setIsPlaying(true);

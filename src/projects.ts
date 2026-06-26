@@ -18,13 +18,15 @@ export interface Project {
   year?: string;
 }
 
-export type ProjectCategory = 'games' | 'music' | 'programs' | 'ai';
+export type ProjectCategory = 'games' | 'music' | 'programs' | 'ai' | 'characters' | 'mcp';
 
 export const categoryInfo: Record<ProjectCategory, { icon: string; subtitle: string; label: string }> = {
   games: { icon: "⚔", subtitle: "Playable Web Games", label: "Games" },
   music: { icon: "♪", subtitle: "Music & Lyrics", label: "Music" },
   programs: { icon: "◈", subtitle: "Software & Tools", label: "Programs" },
   ai: { icon: "⬡", subtitle: "AI Research & Prompts", label: "AI" },
+  characters: { icon: "🜏", subtitle: "Dark Fantasy Character Lore", label: "Characters" },
+  mcp: { icon: "⧉", subtitle: "Model Context Protocol Servers", label: "MCP" },
 };
 
 export const projects: Project[] = [
@@ -203,6 +205,54 @@ export const projects: Project[] = [
     details: "A collection of 22 medieval dark fantasy system prompts designed for AI roleplay/coding personas. Races include Undead, Orc, Dark Elf, Goblin, Vampire, Demon, Troll, Lich, Dark Dwarf, Wraith, Minotaur, Dragon, and more.",
   },
 
+  // ===== CHARACTERS =====
+  {
+    id: "fighter",
+    title: "Aldric the Unburied",
+    description: "Expanded character lore for a brutal dark medieval fantasy RPG — a court-martialed Knight-Captain whose body was never recovered.",
+    tech: ["Worldbuilding", "Dark Fantasy", "RPG"],
+    category: "characters",
+    type: "program",
+    path: "projects/characters/Fighter",
+    details: "Aldric Voss, formerly Knight-Captain of the 7th Regiment. Tried, sentenced to hang, and executed — but the body was never recovered. The lorebook unfolds through a court-martial transcript and marginal annotations written by someone who knew the truth.",
+    files: ["Fighter_Lorebook.md", "Fighter_Templates.md"],
+  },
+  {
+    id: "knight",
+    title: "The One the River Refused",
+    description: "A knight drowned in identity rather than water. A coroner's ledger, a misidentified corpse, and a figure who walked away from his own death.",
+    tech: ["Worldbuilding", "Dark Fantasy", "RPG"],
+    category: "characters",
+    type: "program",
+    path: "projects/characters/Knight",
+    details: "The remains pulled from the Blackwater Ford wore armor too fine for the corpse's condition. The Order of the Iron Word had been dissolved for seventeen years. The river took someone else that night — this one walked out.",
+    files: ["Knight_Lorebook.md", "Knight_Templates.md"],
+  },
+  {
+    id: "paladin",
+    title: "The Uncanonized",
+    description: "A paladin declared Blessed in absentia, martyred at the Pale Crossing — then found alive three hundred miles from her own shrine.",
+    tech: ["Worldbuilding", "Dark Fantasy", "RPG"],
+    category: "characters",
+    type: "program",
+    path: "projects/characters/Paladin",
+    details: "Solenne of Ashveil held the ford for nine hours. The church canonized her, built a shrine, and filled it with eleven thousand pilgrims. Then the inquisition confirmed she was still alive — and still counting the dead.",
+    files: ["Paladin_Lorebook.md"],
+  },
+
+  // ===== MCP =====
+  {
+    id: "psychcoherence",
+    title: "PsychCoherence MCP",
+    description: "A Model Context Protocol server that provides cognitive coherence tools for agent introspection and stabilization.",
+    tech: ["Python", "MCP", "Cognitive Coherence"],
+    category: "mcp",
+    type: "program",
+    path: "projects/mcp",
+    details: "An MCP server exposing tools for analyzing cognitive coherence, emotional residue, and conceptual stability in long-running agent sessions.",
+    files: ["psychcoherence.py"],
+  },
+
   // ===== PROGRAMS =====
   {
     id: "sheddevs-2d-characters",
@@ -272,12 +322,13 @@ export const projects: Project[] = [
   {
     id: "utility-scripts",
     title: "Utility Scripts",
-    description: "A collection of specialized Python and MCP utilities for audio processing, image upscaling, and cognitive coherence.",
-    tech: ["Python", "FFmpeg", "PIL", "MCP"],
+    description: "A collection of specialized Python utilities for audio processing and image upscaling.",
+    tech: ["Python", "FFmpeg", "PIL"],
     category: "programs",
     type: "program",
-    details: "Includes batch_loudnorm.py for EBU R128 audio normalization, image_upscaler.py for bulk image processing, and psychcoherence.py MCP server.",
-    files: ["batch_loudnorm.py", "image_upscaler.py", "psychcoherence.py"],
+    path: "projects/utility",
+    details: "Includes batch_loudnorm.py for EBU R128 audio normalization and image_upscaler.py for bulk image processing.",
+    files: ["batch_loudnorm.py", "image_upscaler.py"],
   },
 ];
 

@@ -3,6 +3,9 @@
 
 @import "tailwindcss";
 
+/* Avoid scanning bundled project files for Tailwind classes. */
+@source not "../public/projects";
+
 /* Custom scrollbar for dark theme */
 ::-webkit-scrollbar {
   width: 8px;

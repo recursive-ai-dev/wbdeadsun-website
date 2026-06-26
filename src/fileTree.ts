@@ -9,20 +9,44 @@ export const fileTree = {
       "type": "directory",
       "children": [
         {
+          "name": "html",
+          "path": "projects/ai/html",
+          "type": "directory",
+          "children": [
+            {
+              "name": "KiraLM.html",
+              "path": "projects/ai/html/KiraLM.html",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "ipynb",
+          "path": "projects/ai/ipynb",
+          "type": "directory",
+          "children": [
+            {
+              "name": "CadenceTTY_Notebook.ipynb",
+              "path": "projects/ai/ipynb/CadenceTTY_Notebook.ipynb",
+              "type": "file"
+            },
+            {
+              "name": "HodgeLM_Notebook.ipynb",
+              "path": "projects/ai/ipynb/HodgeLM_Notebook.ipynb",
+              "type": "file"
+            },
+            {
+              "name": "TensegrityLM_Notebook.ipynb",
+              "path": "projects/ai/ipynb/TensegrityLM_Notebook.ipynb",
+              "type": "file"
+            }
+          ]
+        },
+        {
           "name": "LLM-RP",
           "path": "projects/ai/LLM-RP",
           "type": "directory",
           "children": [
-            {
-              "name": "LEGION_SYNERGY.md",
-              "path": "projects/ai/LLM-RP/LEGION_SYNERGY.md",
-              "type": "file"
-            },
-            {
-              "name": "LLMRP.html",
-              "path": "projects/ai/LLM-RP/LLMRP.html",
-              "type": "file"
-            },
             {
               "name": "architect",
               "path": "projects/ai/LLM-RP/architect",
@@ -39,26 +63,6 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
-                  "name": "LEGION_INTEGRATION_GUIDE.md",
-                  "path": "projects/ai/LLM-RP/architect/LEGION_INTEGRATION_GUIDE.md",
-                  "type": "file"
-                },
-                {
-                  "name": "README.md",
-                  "path": "projects/ai/LLM-RP/architect/README.md",
-                  "type": "file"
-                },
-                {
-                  "name": "README_ARCHITECT_PACKAGE.md",
-                  "path": "projects/ai/LLM-RP/architect/README_ARCHITECT_PACKAGE.md",
-                  "type": "file"
-                },
-                {
-                  "name": "SKILL_ARCHITECT.md",
-                  "path": "projects/ai/LLM-RP/architect/SKILL_ARCHITECT.md",
-                  "type": "file"
-                },
-                {
                   "name": "engine.ts",
                   "path": "projects/ai/LLM-RP/architect/engine.ts",
                   "type": "file"
@@ -69,6 +73,11 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
+                  "name": "LEGION_INTEGRATION_GUIDE.md",
+                  "path": "projects/ai/LLM-RP/architect/LEGION_INTEGRATION_GUIDE.md",
+                  "type": "file"
+                },
+                {
                   "name": "package.json",
                   "path": "projects/ai/LLM-RP/architect/package.json",
                   "type": "file"
@@ -76,6 +85,21 @@ export const fileTree = {
                 {
                   "name": "react_agent.ts",
                   "path": "projects/ai/LLM-RP/architect/react_agent.ts",
+                  "type": "file"
+                },
+                {
+                  "name": "README_ARCHITECT_PACKAGE.md",
+                  "path": "projects/ai/LLM-RP/architect/README_ARCHITECT_PACKAGE.md",
+                  "type": "file"
+                },
+                {
+                  "name": "README.md",
+                  "path": "projects/ai/LLM-RP/architect/README.md",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_ARCHITECT.md",
+                  "path": "projects/ai/LLM-RP/architect/SKILL_ARCHITECT.md",
                   "type": "file"
                 },
                 {
@@ -111,16 +135,6 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
-                  "name": "SKILL_BARD.md",
-                  "path": "projects/ai/LLM-RP/bard/SKILL_BARD.md",
-                  "type": "file"
-                },
-                {
-                  "name": "UndeadBard.md",
-                  "path": "projects/ai/LLM-RP/bard/UndeadBard.md",
-                  "type": "file"
-                },
-                {
                   "name": "index.ts",
                   "path": "projects/ai/LLM-RP/bard/index.ts",
                   "type": "file"
@@ -136,8 +150,18 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
+                  "name": "SKILL_BARD.md",
+                  "path": "projects/ai/LLM-RP/bard/SKILL_BARD.md",
+                  "type": "file"
+                },
+                {
                   "name": "tsconfig.json",
                   "path": "projects/ai/LLM-RP/bard/tsconfig.json",
+                  "type": "file"
+                },
+                {
+                  "name": "UndeadBard.md",
+                  "path": "projects/ai/LLM-RP/bard/UndeadBard.md",
                   "type": "file"
                 },
                 {
@@ -162,16 +186,6 @@ export const fileTree = {
               "path": "projects/ai/LLM-RP/berserker",
               "type": "directory",
               "children": [
-                {
-                  "name": "Berserker_BERSERKER_CODEX.md",
-                  "path": "projects/ai/LLM-RP/berserker/Berserker_BERSERKER_CODEX.md",
-                  "type": "file"
-                },
-                {
-                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_SKILL.md",
-                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_SKILL.md",
-                  "type": "file"
-                },
                 {
                   "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_references_ancestor-verdicts.md",
                   "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_references_ancestor-verdicts.md",
@@ -198,8 +212,18 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
+                  "name": "Berserker_ancestor-spirits-skill_ancestor-spirits_SKILL.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_ancestor-spirits_SKILL.md",
+                  "type": "file"
+                },
+                {
                   "name": "Berserker_ancestor-spirits-skill_undead-berserker_undead-berserker.md.md",
                   "path": "projects/ai/LLM-RP/berserker/Berserker_ancestor-spirits-skill_undead-berserker_undead-berserker.md.md",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_BERSERKER_CODEX.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_BERSERKER_CODEX.md",
                   "type": "file"
                 },
                 {
@@ -213,11 +237,6 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
-                  "name": "Berserker_mcp-server_README.md",
-                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_README.md",
-                  "type": "file"
-                },
-                {
                   "name": "Berserker_mcp-server_package-lock.json",
                   "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_package-lock.json",
                   "type": "file"
@@ -225,6 +244,11 @@ export const fileTree = {
                 {
                   "name": "Berserker_mcp-server_package.json",
                   "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "Berserker_mcp-server_README.md",
+                  "path": "projects/ai/LLM-RP/berserker/Berserker_mcp-server_README.md",
                   "type": "file"
                 },
                 {
@@ -380,11 +404,6 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
-                  "name": "SKILL_DRAGON.md",
-                  "path": "projects/ai/LLM-RP/dragon/SKILL_DRAGON.md",
-                  "type": "file"
-                },
-                {
                   "name": "index.ts",
                   "path": "projects/ai/LLM-RP/dragon/index.ts",
                   "type": "file"
@@ -397,6 +416,11 @@ export const fileTree = {
                 {
                   "name": "package.json",
                   "path": "projects/ai/LLM-RP/dragon/package.json",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_DRAGON.md",
+                  "path": "projects/ai/LLM-RP/dragon/SKILL_DRAGON.md",
                   "type": "file"
                 },
                 {
@@ -422,11 +446,6 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
-                  "name": "SKILL_HEXWEAVER.md",
-                  "path": "projects/ai/LLM-RP/hexweaver/SKILL_HEXWEAVER.md",
-                  "type": "file"
-                },
-                {
                   "name": "index.ts",
                   "path": "projects/ai/LLM-RP/hexweaver/index.ts",
                   "type": "file"
@@ -439,6 +458,11 @@ export const fileTree = {
                 {
                   "name": "roles-hexweaver.md",
                   "path": "projects/ai/LLM-RP/hexweaver/roles-hexweaver.md",
+                  "type": "file"
+                },
+                {
+                  "name": "SKILL_HEXWEAVER.md",
+                  "path": "projects/ai/LLM-RP/hexweaver/SKILL_HEXWEAVER.md",
                   "type": "file"
                 },
                 {
@@ -459,16 +483,6 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
-                  "name": "SKILL_HOUND.md",
-                  "path": "projects/ai/LLM-RP/hound/SKILL_HOUND.md",
-                  "type": "file"
-                },
-                {
-                  "name": "Undead-Hound.md",
-                  "path": "projects/ai/LLM-RP/hound/Undead-Hound.md",
-                  "type": "file"
-                },
-                {
                   "name": "index.ts",
                   "path": "projects/ai/LLM-RP/hound/index.ts",
                   "type": "file"
@@ -484,8 +498,18 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
+                  "name": "SKILL_HOUND.md",
+                  "path": "projects/ai/LLM-RP/hound/SKILL_HOUND.md",
+                  "type": "file"
+                },
+                {
                   "name": "tsconfig.json",
                   "path": "projects/ai/LLM-RP/hound/tsconfig.json",
+                  "type": "file"
+                },
+                {
+                  "name": "Undead-Hound.md",
+                  "path": "projects/ai/LLM-RP/hound/Undead-Hound.md",
                   "type": "file"
                 }
               ]
@@ -495,21 +519,6 @@ export const fileTree = {
               "path": "projects/ai/LLM-RP/warlock",
               "type": "directory",
               "children": [
-                {
-                  "name": "SKILL_WARLOCK.md",
-                  "path": "projects/ai/LLM-RP/warlock/SKILL_WARLOCK.md",
-                  "type": "file"
-                },
-                {
-                  "name": "UndeadWarlock.md",
-                  "path": "projects/ai/LLM-RP/warlock/UndeadWarlock.md",
-                  "type": "file"
-                },
-                {
-                  "name": "WARLOCK_CODEX.md",
-                  "path": "projects/ai/LLM-RP/warlock/WARLOCK_CODEX.md",
-                  "type": "file"
-                },
                 {
                   "name": "index.ts",
                   "path": "projects/ai/LLM-RP/warlock/index.ts",
@@ -526,44 +535,35 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
+                  "name": "SKILL_WARLOCK.md",
+                  "path": "projects/ai/LLM-RP/warlock/SKILL_WARLOCK.md",
+                  "type": "file"
+                },
+                {
                   "name": "tsconfig.json",
                   "path": "projects/ai/LLM-RP/warlock/tsconfig.json",
                   "type": "file"
+                },
+                {
+                  "name": "UndeadWarlock.md",
+                  "path": "projects/ai/LLM-RP/warlock/UndeadWarlock.md",
+                  "type": "file"
+                },
+                {
+                  "name": "WARLOCK_CODEX.md",
+                  "path": "projects/ai/LLM-RP/warlock/WARLOCK_CODEX.md",
+                  "type": "file"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "name": "html",
-          "path": "projects/ai/html",
-          "type": "directory",
-          "children": [
+            },
             {
-              "name": "KiraLM.html",
-              "path": "projects/ai/html/KiraLM.html",
-              "type": "file"
-            }
-          ]
-        },
-        {
-          "name": "ipynb",
-          "path": "projects/ai/ipynb",
-          "type": "directory",
-          "children": [
-            {
-              "name": "CadenceTTY_Notebook.ipynb",
-              "path": "projects/ai/ipynb/CadenceTTY_Notebook.ipynb",
+              "name": "LEGION_SYNERGY.md",
+              "path": "projects/ai/LLM-RP/LEGION_SYNERGY.md",
               "type": "file"
             },
             {
-              "name": "HodgeLM_Notebook.ipynb",
-              "path": "projects/ai/ipynb/HodgeLM_Notebook.ipynb",
-              "type": "file"
-            },
-            {
-              "name": "TensegrityLM_Notebook.ipynb",
-              "path": "projects/ai/ipynb/TensegrityLM_Notebook.ipynb",
+              "name": "LLMRP.html",
+              "path": "projects/ai/LLM-RP/LLMRP.html",
               "type": "file"
             }
           ]
@@ -600,6 +600,180 @@ export const fileTree = {
             {
               "name": "KiraLM.ts",
               "path": "projects/ai/typescript/KiraLM.ts",
+              "type": "file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "characters",
+      "path": "projects/characters",
+      "type": "directory",
+      "children": [
+        {
+          "name": "Fighter",
+          "path": "projects/characters/Fighter",
+          "type": "directory",
+          "children": [
+            {
+              "name": "images",
+              "path": "projects/characters/Fighter/images",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "__pycache__",
+                  "path": "projects/characters/Fighter/images/__pycache__",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "image_enhancer.cpython-313.pyc",
+                      "path": "projects/characters/Fighter/images/__pycache__/image_enhancer.cpython-313.pyc",
+                      "type": "file"
+                    }
+                  ]
+                },
+                {
+                  "name": "Fighter_Image_Prompts.md",
+                  "path": "projects/characters/Fighter/images/Fighter_Image_Prompts.md",
+                  "type": "file"
+                },
+                {
+                  "name": "image_enhancer.py",
+                  "path": "projects/characters/Fighter/images/image_enhancer.py",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtr8r3vn9f31d.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtr8r3vn9f31d.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtrgun9i3b3ot.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtrgun9i3b3ot.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtrjmv0i3ztyx.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtrjmv0i3ztyx.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtrkwood1sb0b.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtrkwood1sb0b.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtrm6u6xp6sor.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtrm6u6xp6sor.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtrp0mlwynm12.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtrp0mlwynm12.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtru882l91znc.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtru882l91znc.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtrxa4kmryh98.jpeg",
+                  "path": "projects/characters/Fighter/images/mqtrxa4kmryh98.jpeg",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "Fighter_Lorebook.md",
+              "path": "projects/characters/Fighter/Fighter_Lorebook.md",
+              "type": "file"
+            },
+            {
+              "name": "Fighter_Templates.md",
+              "path": "projects/characters/Fighter/Fighter_Templates.md",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Knight",
+          "path": "projects/characters/Knight",
+          "type": "directory",
+          "children": [
+            {
+              "name": "images",
+              "path": "projects/characters/Knight/images",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "Knight_Image_Prompts.md",
+                  "path": "projects/characters/Knight/images/Knight_Image_Prompts.md",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtshvud9yrgfq.jpeg",
+                  "path": "projects/characters/Knight/images/mqtshvud9yrgfq.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtsky87a83bzx.jpeg",
+                  "path": "projects/characters/Knight/images/mqtsky87a83bzx.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtspngv4ghocy.jpeg",
+                  "path": "projects/characters/Knight/images/mqtspngv4ghocy.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtsubthrzo276.jpeg",
+                  "path": "projects/characters/Knight/images/mqtsubthrzo276.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtsvgkwe48gov.jpeg",
+                  "path": "projects/characters/Knight/images/mqtsvgkwe48gov.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtsxord72p2xk.jpeg",
+                  "path": "projects/characters/Knight/images/mqtsxord72p2xk.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtsxuykg0hkiy.jpeg",
+                  "path": "projects/characters/Knight/images/mqtsxuykg0hkiy.jpeg",
+                  "type": "file"
+                },
+                {
+                  "name": "mqtsy6cbkxlphn.jpeg",
+                  "path": "projects/characters/Knight/images/mqtsy6cbkxlphn.jpeg",
+                  "type": "file"
+                }
+              ]
+            },
+            {
+              "name": "Knight_Lorebook.md",
+              "path": "projects/characters/Knight/Knight_Lorebook.md",
+              "type": "file"
+            },
+            {
+              "name": "Knight_Templates.md",
+              "path": "projects/characters/Knight/Knight_Templates.md",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "Paladin",
+          "path": "projects/characters/Paladin",
+          "type": "directory",
+          "children": [
+            {
+              "name": "Paladin_Lorebook.md",
+              "path": "projects/characters/Paladin/Paladin_Lorebook.md",
               "type": "file"
             }
           ]
@@ -744,11 +918,6 @@ export const fileTree = {
           "type": "directory",
           "children": [
             {
-              "name": "README.md",
-              "path": "projects/music/icryafterikill/README.md",
-              "type": "file"
-            },
-            {
               "name": "icryafterikill - A little line of why I try.mp3",
               "path": "projects/music/icryafterikill/icryafterikill - A little line of why I try.mp3",
               "type": "file"
@@ -804,8 +973,23 @@ export const fileTree = {
               "type": "file"
             },
             {
+              "name": "icryafterikill - Targets.mp3",
+              "path": "projects/music/icryafterikill/icryafterikill - Targets.mp3",
+              "type": "file"
+            },
+            {
               "name": "icryafterikill - Today is a lot.mp3",
               "path": "projects/music/icryafterikill/icryafterikill - Today is a lot.mp3",
+              "type": "file"
+            },
+            {
+              "name": "icryafterikill - whydoikill.mp3",
+              "path": "projects/music/icryafterikill/icryafterikill - whydoikill.mp3",
+              "type": "file"
+            },
+            {
+              "name": "README.md",
+              "path": "projects/music/icryafterikill/README.md",
               "type": "file"
             }
           ]
@@ -917,8 +1101,13 @@ export const fileTree = {
           "type": "directory",
           "children": [
             {
-              "name": "README.md",
-              "path": "projects/programs/asis/README.md",
+              "name": "asis_dashboard.html",
+              "path": "projects/programs/asis/asis_dashboard.html",
+              "type": "file"
+            },
+            {
+              "name": "asis_trace.json",
+              "path": "projects/programs/asis/asis_trace.json",
               "type": "file"
             },
             {
@@ -927,13 +1116,8 @@ export const fileTree = {
               "type": "file"
             },
             {
-              "name": "asis_dashboard.html",
-              "path": "projects/programs/asis/asis_dashboard.html",
-              "type": "file"
-            },
-            {
-              "name": "asis_trace.json",
-              "path": "projects/programs/asis/asis_trace.json",
+              "name": "README.md",
+              "path": "projects/programs/asis/README.md",
               "type": "file"
             }
           ]
@@ -943,16 +1127,6 @@ export const fileTree = {
           "path": "projects/programs/binsys",
           "type": "directory",
           "children": [
-            {
-              "name": "LICENSE.md",
-              "path": "projects/programs/binsys/LICENSE.md",
-              "type": "file"
-            },
-            {
-              "name": "README.md",
-              "path": "projects/programs/binsys/README.md",
-              "type": "file"
-            },
             {
               "name": "binsys",
               "path": "projects/programs/binsys/binsys",
@@ -1011,30 +1185,10 @@ export const fileTree = {
               ]
             },
             {
-              "name": "binsys.py",
-              "path": "projects/programs/binsys/binsys.py",
-              "type": "file"
-            },
-            {
               "name": "boot",
               "path": "projects/programs/binsys/boot",
               "type": "directory",
               "children": [
-                {
-                  "name": "BOOTX64.EFI",
-                  "path": "projects/programs/binsys/boot/BOOTX64.EFI",
-                  "type": "file"
-                },
-                {
-                  "name": "BUILD.md",
-                  "path": "projects/programs/binsys/boot/BUILD.md",
-                  "type": "file"
-                },
-                {
-                  "name": "Cargo.toml",
-                  "path": "projects/programs/binsys/boot/Cargo.toml",
-                  "type": "file"
-                },
                 {
                   "name": "aios.conf",
                   "path": "projects/programs/binsys/boot/aios.conf",
@@ -1051,8 +1205,23 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
+                  "name": "BOOTX64.EFI",
+                  "path": "projects/programs/binsys/boot/BOOTX64.EFI",
+                  "type": "file"
+                },
+                {
+                  "name": "BUILD.md",
+                  "path": "projects/programs/binsys/boot/BUILD.md",
+                  "type": "file"
+                },
+                {
                   "name": "build.rs",
                   "path": "projects/programs/binsys/boot/build.rs",
+                  "type": "file"
+                },
+                {
+                  "name": "Cargo.toml",
+                  "path": "projects/programs/binsys/boot/Cargo.toml",
                   "type": "file"
                 },
                 {
@@ -1145,11 +1314,6 @@ export const fileTree = {
                   "type": "directory",
                   "children": [
                     {
-                      "name": "README.md",
-                      "path": "projects/programs/binsys/os/asis/README.md",
-                      "type": "file"
-                    },
-                    {
                       "name": "asis_dashboard.html",
                       "path": "projects/programs/binsys/os/asis/asis_dashboard.html",
                       "type": "file"
@@ -1162,6 +1326,11 @@ export const fileTree = {
                     {
                       "name": "asis_trace.json",
                       "path": "projects/programs/binsys/os/asis/asis_trace.json",
+                      "type": "file"
+                    },
+                    {
+                      "name": "README.md",
+                      "path": "projects/programs/binsys/os/asis/README.md",
                       "type": "file"
                     }
                   ]
@@ -1306,11 +1475,6 @@ export const fileTree = {
               ]
             },
             {
-              "name": "pyproject.toml",
-              "path": "projects/programs/binsys/pyproject.toml",
-              "type": "file"
-            },
-            {
               "name": "scripts",
               "path": "projects/programs/binsys/scripts",
               "type": "directory",
@@ -1380,6 +1544,26 @@ export const fileTree = {
               ]
             },
             {
+              "name": "binsys.py",
+              "path": "projects/programs/binsys/binsys.py",
+              "type": "file"
+            },
+            {
+              "name": "LICENSE.md",
+              "path": "projects/programs/binsys/LICENSE.md",
+              "type": "file"
+            },
+            {
+              "name": "pyproject.toml",
+              "path": "projects/programs/binsys/pyproject.toml",
+              "type": "file"
+            },
+            {
+              "name": "README.md",
+              "path": "projects/programs/binsys/README.md",
+              "type": "file"
+            },
+            {
               "name": "utils.py",
               "path": "projects/programs/binsys/utils.py",
               "type": "file"
@@ -1391,16 +1575,6 @@ export const fileTree = {
           "path": "projects/programs/labyr",
           "type": "directory",
           "children": [
-            {
-              "name": "Makefile",
-              "path": "projects/programs/labyr/Makefile",
-              "type": "file"
-            },
-            {
-              "name": "README.md",
-              "path": "projects/programs/labyr/README.md",
-              "type": "file"
-            },
             {
               "name": "desktop",
               "path": "projects/programs/labyr/desktop",
@@ -1433,36 +1607,6 @@ export const fileTree = {
               "path": "projects/programs/labyr/diegetic",
               "type": "directory",
               "children": [
-                {
-                  "name": "__init__.py",
-                  "path": "projects/programs/labyr/diegetic/__init__.py",
-                  "type": "file"
-                },
-                {
-                  "name": "artifacts.py",
-                  "path": "projects/programs/labyr/diegetic/artifacts.py",
-                  "type": "file"
-                },
-                {
-                  "name": "filesystem.py",
-                  "path": "projects/programs/labyr/diegetic/filesystem.py",
-                  "type": "file"
-                },
-                {
-                  "name": "keys.py",
-                  "path": "projects/programs/labyr/diegetic/keys.py",
-                  "type": "file"
-                },
-                {
-                  "name": "narrative.py",
-                  "path": "projects/programs/labyr/diegetic/narrative.py",
-                  "type": "file"
-                },
-                {
-                  "name": "rooms.py",
-                  "path": "projects/programs/labyr/diegetic/rooms.py",
-                  "type": "file"
-                },
                 {
                   "name": "themes",
                   "path": "projects/programs/labyr/diegetic/themes",
@@ -1513,6 +1657,36 @@ export const fileTree = {
                       ]
                     }
                   ]
+                },
+                {
+                  "name": "__init__.py",
+                  "path": "projects/programs/labyr/diegetic/__init__.py",
+                  "type": "file"
+                },
+                {
+                  "name": "artifacts.py",
+                  "path": "projects/programs/labyr/diegetic/artifacts.py",
+                  "type": "file"
+                },
+                {
+                  "name": "filesystem.py",
+                  "path": "projects/programs/labyr/diegetic/filesystem.py",
+                  "type": "file"
+                },
+                {
+                  "name": "keys.py",
+                  "path": "projects/programs/labyr/diegetic/keys.py",
+                  "type": "file"
+                },
+                {
+                  "name": "narrative.py",
+                  "path": "projects/programs/labyr/diegetic/narrative.py",
+                  "type": "file"
+                },
+                {
+                  "name": "rooms.py",
+                  "path": "projects/programs/labyr/diegetic/rooms.py",
+                  "type": "file"
                 }
               ]
             },
@@ -1559,13 +1733,13 @@ export const fileTree = {
                   "type": "directory",
                   "children": [
                     {
-                      "name": "Makefile",
-                      "path": "projects/programs/labyr/guest/initramfs/Makefile",
+                      "name": "init",
+                      "path": "projects/programs/labyr/guest/initramfs/init",
                       "type": "file"
                     },
                     {
-                      "name": "init",
-                      "path": "projects/programs/labyr/guest/initramfs/init",
+                      "name": "Makefile",
+                      "path": "projects/programs/labyr/guest/initramfs/Makefile",
                       "type": "file"
                     },
                     {
@@ -1580,16 +1754,6 @@ export const fileTree = {
                   "path": "projects/programs/labyr/guest/labyr_daemon",
                   "type": "directory",
                   "children": [
-                    {
-                      "name": "Cargo.toml",
-                      "path": "projects/programs/labyr/guest/labyr_daemon/Cargo.toml",
-                      "type": "file"
-                    },
-                    {
-                      "name": "build.rs",
-                      "path": "projects/programs/labyr/guest/labyr_daemon/build.rs",
-                      "type": "file"
-                    },
                     {
                       "name": "src",
                       "path": "projects/programs/labyr/guest/labyr_daemon/src",
@@ -1621,6 +1785,16 @@ export const fileTree = {
                           "type": "file"
                         }
                       ]
+                    },
+                    {
+                      "name": "build.rs",
+                      "path": "projects/programs/labyr/guest/labyr_daemon/build.rs",
+                      "type": "file"
+                    },
+                    {
+                      "name": "Cargo.toml",
+                      "path": "projects/programs/labyr/guest/labyr_daemon/Cargo.toml",
+                      "type": "file"
                     }
                   ]
                 },
@@ -1696,11 +1870,6 @@ export const fileTree = {
               ]
             },
             {
-              "name": "pyproject.toml",
-              "path": "projects/programs/labyr/pyproject.toml",
-              "type": "file"
-            },
-            {
               "name": "tests",
               "path": "projects/programs/labyr/tests",
               "type": "directory",
@@ -1731,6 +1900,21 @@ export const fileTree = {
                   "type": "file"
                 }
               ]
+            },
+            {
+              "name": "Makefile",
+              "path": "projects/programs/labyr/Makefile",
+              "type": "file"
+            },
+            {
+              "name": "pyproject.toml",
+              "path": "projects/programs/labyr/pyproject.toml",
+              "type": "file"
+            },
+            {
+              "name": "README.md",
+              "path": "projects/programs/labyr/README.md",
+              "type": "file"
             }
           ]
         },
@@ -1739,31 +1923,6 @@ export const fileTree = {
           "path": "projects/programs/rfse-conversational",
           "type": "directory",
           "children": [
-            {
-              "name": "LICENSE",
-              "path": "projects/programs/rfse-conversational/LICENSE",
-              "type": "file"
-            },
-            {
-              "name": "README.md",
-              "path": "projects/programs/rfse-conversational/README.md",
-              "type": "file"
-            },
-            {
-              "name": "The Relational Fixpoint Synthesis Engine (RFSE).md",
-              "path": "projects/programs/rfse-conversational/The Relational Fixpoint Synthesis Engine (RFSE).md",
-              "type": "file"
-            },
-            {
-              "name": "index.html",
-              "path": "projects/programs/rfse-conversational/index.html",
-              "type": "file"
-            },
-            {
-              "name": "package.json",
-              "path": "projects/programs/rfse-conversational/package.json",
-              "type": "file"
-            },
             {
               "name": "src",
               "path": "projects/programs/rfse-conversational/src",
@@ -1871,11 +2030,6 @@ export const fileTree = {
                       "type": "file"
                     }
                   ]
-                },
-                {
-                  "name": "index.js",
-                  "path": "projects/programs/rfse-conversational/src/index.js",
-                  "type": "file"
                 },
                 {
                   "name": "orchestration",
@@ -2033,6 +2187,11 @@ export const fileTree = {
                       "type": "file"
                     }
                   ]
+                },
+                {
+                  "name": "index.js",
+                  "path": "projects/programs/rfse-conversational/src/index.js",
+                  "type": "file"
                 }
               ]
             },
@@ -2057,6 +2216,31 @@ export const fileTree = {
                   "type": "file"
                 }
               ]
+            },
+            {
+              "name": "index.html",
+              "path": "projects/programs/rfse-conversational/index.html",
+              "type": "file"
+            },
+            {
+              "name": "LICENSE",
+              "path": "projects/programs/rfse-conversational/LICENSE",
+              "type": "file"
+            },
+            {
+              "name": "package.json",
+              "path": "projects/programs/rfse-conversational/package.json",
+              "type": "file"
+            },
+            {
+              "name": "README.md",
+              "path": "projects/programs/rfse-conversational/README.md",
+              "type": "file"
+            },
+            {
+              "name": "The Relational Fixpoint Synthesis Engine (RFSE).md",
+              "path": "projects/programs/rfse-conversational/The Relational Fixpoint Synthesis Engine (RFSE).md",
+              "type": "file"
             }
           ]
         },
@@ -2078,41 +2262,6 @@ export const fileTree = {
           "type": "directory",
           "children": [
             {
-              "name": "LICENSE",
-              "path": "projects/programs/sheddevs-2d-characters/LICENSE",
-              "type": "file"
-            },
-            {
-              "name": "README.md",
-              "path": "projects/programs/sheddevs-2d-characters/README.md",
-              "type": "file"
-            },
-            {
-              "name": "components.json",
-              "path": "projects/programs/sheddevs-2d-characters/components.json",
-              "type": "file"
-            },
-            {
-              "name": "eslint.config.mjs",
-              "path": "projects/programs/sheddevs-2d-characters/eslint.config.mjs",
-              "type": "file"
-            },
-            {
-              "name": "next.config.ts",
-              "path": "projects/programs/sheddevs-2d-characters/next.config.ts",
-              "type": "file"
-            },
-            {
-              "name": "package.json",
-              "path": "projects/programs/sheddevs-2d-characters/package.json",
-              "type": "file"
-            },
-            {
-              "name": "postcss.config.mjs",
-              "path": "projects/programs/sheddevs-2d-characters/postcss.config.mjs",
-              "type": "file"
-            },
-            {
               "name": "public",
               "path": "projects/programs/sheddevs-2d-characters/public",
               "type": "directory",
@@ -2128,11 +2277,6 @@ export const fileTree = {
                   "type": "file"
                 }
               ]
-            },
-            {
-              "name": "server.ts",
-              "path": "projects/programs/sheddevs-2d-characters/server.ts",
-              "type": "file"
             },
             {
               "name": "src",
@@ -2553,16 +2697,6 @@ export const fileTree = {
                       ]
                     },
                     {
-                      "name": "db.ts",
-                      "path": "projects/programs/sheddevs-2d-characters/src/lib/db.ts",
-                      "type": "file"
-                    },
-                    {
-                      "name": "socket.ts",
-                      "path": "projects/programs/sheddevs-2d-characters/src/lib/socket.ts",
-                      "type": "file"
-                    },
-                    {
                       "name": "theme",
                       "path": "projects/programs/sheddevs-2d-characters/src/lib/theme",
                       "type": "directory",
@@ -2580,6 +2714,16 @@ export const fileTree = {
                       ]
                     },
                     {
+                      "name": "db.ts",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/db.ts",
+                      "type": "file"
+                    },
+                    {
+                      "name": "socket.ts",
+                      "path": "projects/programs/sheddevs-2d-characters/src/lib/socket.ts",
+                      "type": "file"
+                    },
+                    {
                       "name": "utils.ts",
                       "path": "projects/programs/sheddevs-2d-characters/src/lib/utils.ts",
                       "type": "file"
@@ -2587,6 +2731,46 @@ export const fileTree = {
                   ]
                 }
               ]
+            },
+            {
+              "name": "components.json",
+              "path": "projects/programs/sheddevs-2d-characters/components.json",
+              "type": "file"
+            },
+            {
+              "name": "eslint.config.mjs",
+              "path": "projects/programs/sheddevs-2d-characters/eslint.config.mjs",
+              "type": "file"
+            },
+            {
+              "name": "LICENSE",
+              "path": "projects/programs/sheddevs-2d-characters/LICENSE",
+              "type": "file"
+            },
+            {
+              "name": "next.config.ts",
+              "path": "projects/programs/sheddevs-2d-characters/next.config.ts",
+              "type": "file"
+            },
+            {
+              "name": "package.json",
+              "path": "projects/programs/sheddevs-2d-characters/package.json",
+              "type": "file"
+            },
+            {
+              "name": "postcss.config.mjs",
+              "path": "projects/programs/sheddevs-2d-characters/postcss.config.mjs",
+              "type": "file"
+            },
+            {
+              "name": "README.md",
+              "path": "projects/programs/sheddevs-2d-characters/README.md",
+              "type": "file"
+            },
+            {
+              "name": "server.ts",
+              "path": "projects/programs/sheddevs-2d-characters/server.ts",
+              "type": "file"
             },
             {
               "name": "tailwind.config.ts",
@@ -2605,21 +2789,6 @@ export const fileTree = {
           "path": "projects/programs/vaeru",
           "type": "directory",
           "children": [
-            {
-              "name": "LICENSE",
-              "path": "projects/programs/vaeru/LICENSE",
-              "type": "file"
-            },
-            {
-              "name": "Makefile",
-              "path": "projects/programs/vaeru/Makefile",
-              "type": "file"
-            },
-            {
-              "name": "README.md",
-              "path": "projects/programs/vaeru/README.md",
-              "type": "file"
-            },
             {
               "name": "config",
               "path": "projects/programs/vaeru/config",
@@ -2648,6 +2817,11 @@ export const fileTree = {
                   "type": "file"
                 },
                 {
+                  "name": "original-spec.txt",
+                  "path": "projects/programs/vaeru/docs/original-spec.txt",
+                  "type": "file"
+                },
+                {
                   "name": "ROADMAP.md",
                   "path": "projects/programs/vaeru/docs/ROADMAP.md",
                   "type": "file"
@@ -2656,18 +2830,8 @@ export const fileTree = {
                   "name": "SAFETY.md",
                   "path": "projects/programs/vaeru/docs/SAFETY.md",
                   "type": "file"
-                },
-                {
-                  "name": "original-spec.txt",
-                  "path": "projects/programs/vaeru/docs/original-spec.txt",
-                  "type": "file"
                 }
               ]
-            },
-            {
-              "name": "pyproject.toml",
-              "path": "projects/programs/vaeru/pyproject.toml",
-              "type": "file"
             },
             {
               "name": "scripts",
@@ -2692,41 +2856,6 @@ export const fileTree = {
                   "type": "directory",
                   "children": [
                     {
-                      "name": "__init__.py",
-                      "path": "projects/programs/vaeru/src/vaeru/__init__.py",
-                      "type": "file"
-                    },
-                    {
-                      "name": "__main__.py",
-                      "path": "projects/programs/vaeru/src/vaeru/__main__.py",
-                      "type": "file"
-                    },
-                    {
-                      "name": "actions.py",
-                      "path": "projects/programs/vaeru/src/vaeru/actions.py",
-                      "type": "file"
-                    },
-                    {
-                      "name": "cli.py",
-                      "path": "projects/programs/vaeru/src/vaeru/cli.py",
-                      "type": "file"
-                    },
-                    {
-                      "name": "config.py",
-                      "path": "projects/programs/vaeru/src/vaeru/config.py",
-                      "type": "file"
-                    },
-                    {
-                      "name": "core.py",
-                      "path": "projects/programs/vaeru/src/vaeru/core.py",
-                      "type": "file"
-                    },
-                    {
-                      "name": "models.py",
-                      "path": "projects/programs/vaeru/src/vaeru/models.py",
-                      "type": "file"
-                    },
-                    {
                       "name": "primitives",
                       "path": "projects/programs/vaeru/src/vaeru/primitives",
                       "type": "directory",
@@ -2734,6 +2863,11 @@ export const fileTree = {
                         {
                           "name": "__init__.py",
                           "path": "projects/programs/vaeru/src/vaeru/primitives/__init__.py",
+                          "type": "file"
+                        },
+                        {
+                          "name": "p1_gradient.py",
+                          "path": "projects/programs/vaeru/src/vaeru/primitives/p1_gradient.py",
                           "type": "file"
                         },
                         {
@@ -2749,11 +2883,6 @@ export const fileTree = {
                         {
                           "name": "p12_tracer.py",
                           "path": "projects/programs/vaeru/src/vaeru/primitives/p12_tracer.py",
-                          "type": "file"
-                        },
-                        {
-                          "name": "p1_gradient.py",
-                          "path": "projects/programs/vaeru/src/vaeru/primitives/p1_gradient.py",
                           "type": "file"
                         },
                         {
@@ -2799,6 +2928,41 @@ export const fileTree = {
                       ]
                     },
                     {
+                      "name": "__init__.py",
+                      "path": "projects/programs/vaeru/src/vaeru/__init__.py",
+                      "type": "file"
+                    },
+                    {
+                      "name": "__main__.py",
+                      "path": "projects/programs/vaeru/src/vaeru/__main__.py",
+                      "type": "file"
+                    },
+                    {
+                      "name": "actions.py",
+                      "path": "projects/programs/vaeru/src/vaeru/actions.py",
+                      "type": "file"
+                    },
+                    {
+                      "name": "cli.py",
+                      "path": "projects/programs/vaeru/src/vaeru/cli.py",
+                      "type": "file"
+                    },
+                    {
+                      "name": "config.py",
+                      "path": "projects/programs/vaeru/src/vaeru/config.py",
+                      "type": "file"
+                    },
+                    {
+                      "name": "core.py",
+                      "path": "projects/programs/vaeru/src/vaeru/core.py",
+                      "type": "file"
+                    },
+                    {
+                      "name": "models.py",
+                      "path": "projects/programs/vaeru/src/vaeru/models.py",
+                      "type": "file"
+                    },
+                    {
                       "name": "py.typed",
                       "path": "projects/programs/vaeru/src/vaeru/py.typed",
                       "type": "file"
@@ -2833,6 +2997,26 @@ export const fileTree = {
                   "type": "file"
                 }
               ]
+            },
+            {
+              "name": "LICENSE",
+              "path": "projects/programs/vaeru/LICENSE",
+              "type": "file"
+            },
+            {
+              "name": "Makefile",
+              "path": "projects/programs/vaeru/Makefile",
+              "type": "file"
+            },
+            {
+              "name": "pyproject.toml",
+              "path": "projects/programs/vaeru/pyproject.toml",
+              "type": "file"
+            },
+            {
+              "name": "README.md",
+              "path": "projects/programs/vaeru/README.md",
+              "type": "file"
             }
           ]
         }
